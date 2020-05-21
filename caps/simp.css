@@ -1,8 +1,9 @@
-body{
-    background-color: rgb(152, 239, 152);
+body {
+  background-color: rgb(152, 239, 152);
+  margin: 2%;
+  padding: 5px;
 }
 
-
-.align{
-    display: block;
+.align {
+  display: block;
 }
