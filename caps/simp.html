@@ -425,7 +425,60 @@ function winner(playerMove, om) {
           <figcaption>Java code here</figcaption>
           <pre class="prettyprint" >
             <code>
-                  java
+              import java.util.*;
+              public class Main {
+                  public static void main(String[] args) {
+                      // Brian's code for simple rock paper scissors
+                      Scanner input = new Scanner(System.in);    // Object for getting input from user keyboard
+                      Random myRand = new Random();              // Object for Generating Random Numbers for comp move
+                      // weapons
+                      int R = 0; // = Rock
+                      int P = 1; // = Paper
+                      int S = 2; // = Scissors
+                      // variables
+                      int user_choice; // User's Choice
+                      int machine_choice; // Computer's Choice
+                      boolean keep_playing = true;
+                      int wins = 0;
+                      int losses = 0;
+                      int ties = 0;
+                      // gameplay
+                      while (keep_playing) {
+                          System.out.println("Welcome to the java game of Rock Paper Scissors");
+                          System.out.println("| ScoreBoard: your wins are = " + wins + "| your losses are = " + losses + " | your ties are = " + ties + " |");
+                          System.out.println("It is you vs the machine choose your weapon by its number");
+                          System.out.println("0. Rock");
+                          System.out.println("1. Paper");
+                          System.out.println("2. Scissors");
+              
+                          user_choice = input.nextInt(); // Get user input from keyboard
+                          machine_choice = myRand.nextInt(3); // Make a random number between 0 and 2 for the computer's choice.
+              
+                          // what each 'player' chose
+                          System.out.println("Machine throws... " + machine_choice + " _-_ You picked... " + user_choice);
+              
+                          // results logic
+                          if (user_choice == machine_choice) {
+                              ties++;
+                              System.out.println("It's a Tie Game!");
+                          } else if ((user_choice == R && machine_choice == S) || (user_choice == S && machine_choice == P) || (user_choice == P && machine_choice == R)) {
+                              wins++;
+                              System.out.println("You the user Wins!");
+                          } else {
+                              losses++;
+                              System.out.println("Sorry sport ... The Computer Wins!");
+                          }
+                          System.out.println("Want to continue playing ? ");
+                          System.out.println("enter any positive number to keep going, or enter any negative number to stop");
+                          int more = input.nextInt();
+                          if (more < 0) {
+                              System.out.println("ok now bye bye then ");
+                              System.out.println("| ScoreBoard: your wins were = " + wins + "| your losses were = " + losses + " | your ties were = " + ties + " |");
+                              keep_playing = false;
+                          }
+                      }
+                  }
+              }
               
             </code>
           </pre>
