@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="simp.css" type="text/css" />
     <title>pig latin</title>
+        <script
+      src="https://kit.fontawesome.com/70784aaaa8.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <h1 id="top">CODE COMPARE</h1>
@@ -172,7 +176,7 @@
       <div class="jscode">
         <figure>
           <figcaption>JavaScript code here</figcaption>
-          <pre>
+          <pre class="prettyprint">
             <code>
               function setBill() {
                 let bill = document.getElementById("billAmount").value;
@@ -191,7 +195,7 @@
       <div class="pycode">
         <figure>
           <figcaption>Python code here</figcaption>
-          <pre>
+          <pre class="prettyprint" >
             <code>
                   python
               
@@ -202,7 +206,7 @@
       <div class="javacode">
         <figure>
           <figcaption>Java code here</figcaption>
-          <pre>
+          <pre class="prettyprint" >
             <code>
                   java
               
@@ -222,78 +226,516 @@
       Being able to change words referred to in all 3 languages as 'strings' is
       essential to coding
     </h3>
-    <div class="jscode">
-      <h4>js code here</h4>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta officiis
-        ratione tempore nesciunt dolore odit voluptatibus odio praesentium
-        aspernatur quia qui, temporibus necessitatibus expedita tempora ad ipsam
-        illum, eius aliquam!
-      </p>
+          <div class="jscode">
+        <figure>
+          <figcaption>JavaScript code here</figcaption>
+          <pre class="prettyprint">
+            <code>
+function piglatinize() {
+  wordIn = document.getElementById("pigWordIn").value;
+  console.log(wordIn);
+  plWord = document.getElementById("pigWordOut");
+  let words = wordIn.split(" "),
+    newWords = [];
+
+  for (var i = 0; i < words.length; i++) {
+    newWords.push(this.translate(words[i]));
+  }
+
+  plWord.textContent = newWords.join(" ");
+}
+
+function translate(word) {
+  let array = word.split(""),
+    vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"],
+    newWord = "";
+
+  for (var y = 0; y < word.length; y++) {
+    if (vowels.includes(word[y])) {
+      if (y === 0) {
+        return word + "yay";
+      }
+
+      return word.slice(y, word.length) + word.slice(0, y) + "ay";
+    }
+  }
+}
+
+// to stop page re-load on click pig latin
+document
+  .getElementById("pigLatinBtn")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+  });
+
+            </code>
+          </pre>
+        </figure>
+      </div>
+      <div class="pycode">
+        <figure>
+          <figcaption>Python code here</figcaption>
+          <pre class="prettyprint" >
+            <code>
+                  python
+              
+            </code>
+          </pre>
+        </figure>
+      </div>
+      <div class="javacode">
+        <figure>
+          <figcaption>Java code here</figcaption>
+          <pre class="prettyprint" >
+            <code>
+                  java
+              
+            </code>
+          </pre>
+        </figure>
+      </div>
     </div>
-    <div class="pycode">
-      <h4>python here</h4>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sed
-        excepturi repudiandae non. Vel voluptatibus, ad, vitae minus numquam
-        quidem voluptates temporibus hic perspiciatis aspernatur non? Commodi
-        blanditiis asperiores reiciendis!
-      </p>
-    </div>
-    <div class="javacode">
-      <h4>how 2 in java here</h4>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto
-        beatae maxime eaque perferendis? Fugiat et tempore optio a, obcaecati
-        odit laborum recusandae id nemo, sed officiis itaque sint maiores quos!
-      </p>
-    </div>
+
     <h3>
       Now that you can change numbers and change words you can grow these lines
-      of code into something more advanced like a game
+      of code into something more advanced like a game. Click or touch an icon for a round of Rock Paper Scissors.
     </h3>
     <h1>rps</h1>
-    <div class="jscode">
-      <h4>js code here</h4>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta officiis
-        ratione tempore nesciunt dolore odit voluptatibus odio praesentium
-        aspernatur quia qui, temporibus necessitatibus expedita tempora ad ipsam
-        illum, eius aliquam!
-      </p>
-    </div>
-    <div class="pycode">
-      <h4>python here</h4>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sed
-        excepturi repudiandae non. Vel voluptatibus, ad, vitae minus numquam
-        quidem voluptates temporibus hic perspiciatis aspernatur non? Commodi
-        blanditiis asperiores reiciendis!
-      </p>
-    </div>
-    <div class="javacode">
-      <h4>how 2 in java here</h4>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto
-        beatae maxime eaque perferendis? Fugiat et tempore optio a, obcaecati
-        odit laborum recusandae id nemo, sed officiis itaque sint maiores quos!
-      </p>
+      <div class="options">
+        <div class="game" id="rockChoice">
+          Rock<i class="far fa-hand-rock fa-3x"></i>
+        </div>
+        <div class="game" id="paperChoice">
+          Paper<i class="far fa-hand-paper fa-3x"></i>
+        </div>
+        <div class="game" id="scissorChoice">
+          Scissors<i class="far fa-hand-scissors fa-3x"></i>
+        </div>
+        </div>
+              <div class="gameBoardRPS">
+        <h2>your move :</h2>
+        <div class="yourChoice" id="player">choice</div>
+        <button class="rpsBtn" id="playRPS">PLAY R P S</button>
+
+        <h2>computer chose :</h2>
+        <div class="compChoice" id="opponet">rock</div>
+      </div>
+      <div id="outcome"></div>
+      
+
+
+      <div class="jscode">
+        <figure>
+          <figcaption>JavaScript code here</figcaption>
+          <pre class="prettyprint">
+            <code>
+// rps
+// access the html 
+let playerChose = document.getElementById("player");
+let playerMove = "pick";
+playerChose.innerText = playerMove;
+// player / you pick rock
+let rockChosen = document.getElementById("rockChoice");
+rockChosen.addEventListener("click", rockChoice);
+function rockChoice() {
+  playerChose.innerText = "ROCK";
+  playerMove = "rock";
+}
+// player / you pick paper
+let paperChosen = document.getElementById("paperChoice");
+paperChosen.addEventListener("click", paperChoice);
+function paperChoice() {
+  playerChose.innerText = "PAPER";
+  playerMove = "paper";
+}
+// player / you pick scissor
+let scissorChosen = document.getElementById("scissorChoice");
+scissorChosen.addEventListener("click", scissorChoice);
+function scissorChoice() {
+  playerChose.innerText = "SCISSORS";
+  playerMove = "scissors";
+}
+// computers move random number 0 1 or 2
+function opponetMove() {
+  switch (Math.floor(Math.random() * 3)) {
+    case 0:
+      return "rock";
+    case 1:
+      return "paper";
+    case 2:
+      return "scissors";
+  }
+}
+// the button
+let play = document.getElementById("playRPS");
+play.addEventListener("click", rps);
+// display computers choice
+let opponet = document.getElementById("opponet");
+//  the game 
+function rps(e) {
+  // keep window open don't re-load page
+  e.preventDefault();
+  if (playerChose.innerText === "pick") {
+    alert("please choose rock paper or scissors first");
+  } else {
+    // run the function when click so we get a different choice every click
+    let om = opponetMove();
+    // update html
+    opponet.innerText = om;
+    // display win lose or draw
+    winner(playerMove, om);
+    return om;
+  }
+}
+// html access
+let outcome = document.getElementById("outcome");
+// outcomes logic
+function winner(playerMove, om) {
+  if (playerMove == om) {
+    outcome.innerText = "Tie";
+  } else if (playerMove == "rock" && om == "paper") {
+    outcome.innerText = "you lose";
+  } else if (playerMove == "paper" && om == "scissors") {
+    outcome.innerText = "you lose";
+  } else if (playerMove == "scissors" && om == "rock") {
+    outcome.innerText = "you lose";
+  } else {
+    outcome.innerText = "you WIN !";
+  }
+}
+
+//////////////////////////
+            </code>
+          </pre>
+        </figure>
+      </div>
+      <div class="pycode">
+        <figure>
+          <figcaption>Python code here</figcaption>
+          <pre  class="prettyprint" >
+            <code>
+                  python
+              
+            </code>
+          </pre>
+        </figure>
+      </div>
+      <div class="javacode">
+        <figure>
+          <figcaption>Java code here</figcaption>
+          <pre class="prettyprint" >
+            <code>
+                  java
+              
+            </code>
+          </pre>
+        </figure>
+      </div>
     </div>
 
     <h1>RPSLS</h1>
+      <hr />
+      <h2>Select your weapon below & click the shoot button to play</h2>
 
+      <div class="options">
+        <div class="game" id="rock">
+          Rock<i class="far fa-hand-rock fa-3x"></i>
+        </div>
+        <div class="game" id="paper">
+          Paper<i class="far fa-hand-paper fa-3x"></i>
+        </div>
+        <div class="game" id="scissors">
+          Scissors<i class="far fa-hand-scissors fa-3x"></i>
+        </div>
+        <div class="game" id="lizard">
+          Lizard<i class="far fa-hand-lizard fa-3x"></i>
+        </div>
+        <div class="game" id="spock">
+          Spock<i class="far fa-hand-spock fa-3x"></i>
+        </div>
+      </div>
+
+      <div class="moves">
+        <h2>your move :</h2>
+        <div class="yourMove" id="you">choice</div>
+        <button class="rpsBtn" id="shoot">SHOOT</button>
+
+        <h2>computer throws :</h2>
+        <div class="compMove" id="comp">rock</div>
+      </div>
+      <div id="status">You Tie</div>
+      <div class="score">
+        <h2>
+          wins:
+          <div id="win">0</div>
+        </h2>
+
+        <h2>
+          losses:
+          <div id="lose">0</div>
+        </h2>
+
+        <h2>
+          ties:
+          <div id="tie">0</div>
+        </h2>
+      </div>
+
+      <a
+        class="reset"
+        href=""
+        >Click here to reset the score board</a
+      >
+      <hr />
     <div class="rpsls">
       <h4>
         you can then take a simple game and add to it going from 3 to 5 choices
         in the semi-classic Rock Paper Scissors Lizard Spock.
       </h4>
-      <h4>js code here</h4>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta officiis
-        ratione tempore nesciunt dolore odit voluptatibus odio praesentium
-        aspernatur quia qui, temporibus necessitatibus expedita tempora ad ipsam
-        illum, eius aliquam!
-      </p>
+      <div class="jscode">
+        <figure>
+          <figcaption>JavaScript code here</figcaption>
+          <pre class="prettyprint" >
+            <code>
+      /// click rock paper spock ect....
+/// word under your move changes
+/// color outline changes
+/// red rock, silver scissors, white paper, blue spock, green lizard
+/// press button for comps move
+/// score and status updates
+
+// start with your move
+let you = document.getElementById("you");
+let ym = null;
+
+/// player choices of weapon
+/// not a drop down menu - just click to pick - mobile friendly - no keyboard required
+/// rock
+let rock = document.getElementById("rock");
+rock.addEventListener("click", rockPick);
+function rockPick() {
+  you.innerText = "ROCK";
+  you.style.borderColor = "red";
+  ym = "rock";
+}
+/// paper
+let paper = document.getElementById("paper");
+paper.addEventListener("click", paperPick);
+function paperPick() {
+  you.innerText = "PAPER";
+  you.style.borderColor = "white";
+  ym = "paper";
+}
+/// scissors
+let scissors = document.getElementById("scissors");
+scissors.addEventListener("click", sciPick);
+function sciPick() {
+  you.innerText = "SCISSORS";
+  you.style.borderColor = "gray";
+  ym = "scissors";
+}
+/// lizard
+let lizard = document.getElementById("lizard");
+lizard.addEventListener("click", lizardPick);
+function lizardPick() {
+  you.innerText = "LIZARD";
+  you.style.borderColor = "green";
+  ym = "lizard";
+}
+/// spock
+let spock = document.getElementById("spock");
+spock.addEventListener("click", spockPick);
+function spockPick() {
+  you.innerText = "SPOCK";
+  you.style.borderColor = "blue";
+  ym = "spock";
+}
+
+/// click a button after you pick your weapon for computers move
+// pick a random number to get a random computer move
+
+function randomMove() {
+  switch (Math.floor(Math.random() * 5)) {
+    case 0:
+      return "rock";
+    case 1:
+      return "paper";
+    case 2:
+      return "scissors";
+    case 3:
+      return "spock";
+    case 4:
+      return "lizard";
+  }
+}
+
+let shoot = document.getElementById("shoot");
+shoot.addEventListener("click", rpsls);
+
+let puter = document.getElementById("comp");
+
+function rpsls(e) {
+  // keep window open don't re-load page
+  e.preventDefault();
+  if (you.innerText === "choice") {
+    alert("please choose your move first");
+  } else {
+    let cm = randomMove();
+    puter.innerText = cm;
+    if (cm === "rock") {
+      puter.style.borderColor = "red";
+    } else if (cm === "paper") {
+      puter.style.borderColor = "white";
+    } else if (cm === "scissors") {
+      puter.style.borderColor = "gray";
+    } else if (cm === "lizard") {
+      puter.style.borderColor = "green";
+    } else if (cm === "spock") {
+      puter.style.borderColor = "blue";
+    } else {
+      puter.style.borderColor = "black";
+    }
+    compare(ym, cm);
+    return cm;
+  }
+}
+
+/// tell you if round is a 'win', 'lose', or 'draw' ... - anyone remember that show?
+
+let status = document.getElementById("status");
+
+function compare(ym, cm) {
+  // console.log("compare");
+  // console.log(ym);
+  ///// compare
+  /// declare win lose tie - start with tie - base case
+  if (ym === cm) {
+    status.innerText = "You Tied - well at least it's not a loss";
+    scoreT();
+    // console.log("tie");
+
+    // 10 ways to lose - 2 per option - lowercase you - :-(
+  } else if (ym === "paper" && cm === "scissors") {
+    status.innerText = "you lost comp scissors cuts your paper.";
+    scoreL();
+  } else if (ym === "rock" && cm === "paper") {
+    status.innerText = "you lost comp paper covers your rock.";
+    scoreL();
+  } else if (ym === "lizard" && cm === "rock") {
+    status.innerText = "you lost comp rock smash your lizard.";
+    scoreL();
+  } else if (ym === "spock" && cm === "lizard") {
+    status.innerText = "you lost comp lizard poisioned your Spock.";
+    scoreL();
+  } else if (ym === "scissors" && cm === "spock") {
+    status.innerText = "you lost comp Spock smashed your scissors.";
+    scoreL();
+  } else if (ym === "lizard" && cm === "scissors") {
+    status.innerText = "you lost comp scissors killed your lizard.";
+    scoreL();
+  } else if (ym === "paper" && cm === "lizard") {
+    status.innerText = "you lost comp lizard ate your paper.";
+    scoreL();
+  } else if (ym === "spock" && cm === "paper") {
+    status.innerText = "you lost comp paper disproved your Spock.";
+    scoreL();
+  } else if (ym === "rock" && cm === "spock") {
+    status.innerText = "you lost comp Spock vaporized your rock.";
+    scoreL();
+  } else if (ym === "scissors" && cm === "rock") {
+    status.innerText = "you lost comp rock broke your scissors.";
+    scoreL();
+  }
+  // 10 ways to win now - upper case You :-)
+  else if (ym === "scissors" && cm === "paper") {
+    status.innerText = "You Won, Scissors cuts comp paper!";
+    scoreW();
+  } else if (ym === "scissors" && cm === "lizard") {
+    status.innerText = "You Won, Scissors decaps comp lizard!";
+    scoreW();
+  } else if (ym === "rock" && cm === "scissors") {
+    status.innerText = "You Won, Rock smashes comp scissors!";
+    scoreW();
+  } else if (ym === "rock" && cm === "lizard") {
+    status.innerText = "You Won, Rock flattens comp lizard!";
+    scoreW();
+  } else if (ym === "paper" && cm === "spcok") {
+    status.innerText =
+      "You Won, your Paper disproved comp Spock - nice research!";
+    scoreW();
+  } else if (ym === "paper" && cm === "rock") {
+    status.innerText =
+      "You Won, your Paper covered comp rock, and other good topics!";
+    scoreW();
+  } else if (ym === "lizard" && cm === "spock") {
+    status.innerText = "You Won, your Lizard posioned comp Spock.";
+    scoreW();
+  } else if (ym === "lizard" && cm === "paper") {
+    status.innerText =
+      "You Won, your Lizard ate the comp paper! .... nom nom nom ...";
+    scoreW();
+  } else if (ym === "spock" && cm === "rock") {
+    status.innerText =
+      "You Won, your Spock vaporized comp rock! ... pew pew pew ...";
+    scoreW();
+  } else if (ym === "spock" && cm === "scissors") {
+    status.innerText =
+      "You Won, your Spock smashed comp scissors! - May you live long and prosper!";
+    scoreW();
+  }
+}
+
+//// might as well keep score if you're playing
+
+let win = document.getElementById("win");
+let lose = document.getElementById("lose");
+let tie = document.getElementById("tie");
+w = 0;
+l = 0;
+t = 0;
+
+/// if it's a tie
+function scoreT() {
+  t += 1;
+  tie.innerText = t;
+}
+/// if its a loss
+function scoreL() {
+  l += 1;
+  lose.innerText = l;
+}
+/// if you win - yeah right - you won't.
+function scoreW() {
+  w += 1;
+  win.innerText = w;
+}
+            </code>
+          </pre>
+        </figure>
+      </div>
+      <div class="pycode">
+        <figure>
+          <figcaption>Python code here</figcaption>
+          <pre class="prettyprint" >
+            <code>
+                  python
+              
+            </code>
+          </pre>
+        </figure>
+      </div>
+      <div class="javacode">
+        <figure>
+          <figcaption>Java code here</figcaption>
+          <pre class="prettyprint" >
+            <code>
+                  java
+              
+            </code>
+          </pre>
+        </figure>
+      </div>
+    </div>
     </div>
     <div class="conclusion">
       <h1>So now what?</h1>
@@ -318,5 +760,7 @@
     </div>
 
     <script type="text/javascript" src="simp.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
   </body>
 </html>
