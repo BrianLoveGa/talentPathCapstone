@@ -426,15 +426,21 @@ function winner(playerMove, om) {
           <pre class="prettyprint" >
             <code>
               import java.util.*;
+
               public class Main {
+              
+                  private static void print(Object o) {
+                      System.out.println(o);
+                  }
+              
                   public static void main(String[] args) {
                       // Brian's code for simple rock paper scissors
                       Scanner input = new Scanner(System.in);    // Object for getting input from user keyboard
                       Random myRand = new Random();              // Object for Generating Random Numbers for comp move
                       // weapons
-                      int R = 0; // = Rock
-                      int P = 1; // = Paper
-                      int S = 2; // = Scissors
+                      int RO = 0; // = Rock
+                      int PA = 1; // = Paper
+                      int SC = 2; // = Scissors
                       // variables
                       int user_choice; // User's Choice
                       int machine_choice; // Computer's Choice
@@ -444,42 +450,41 @@ function winner(playerMove, om) {
                       int ties = 0;
                       // gameplay
                       while (keep_playing) {
-                          System.out.println("Welcome to the java game of Rock Paper Scissors");
-                          System.out.println("| ScoreBoard: your wins are = " + wins + "| your losses are = " + losses + " | your ties are = " + ties + " |");
-                          System.out.println("It is you vs the machine choose your weapon by its number");
-                          System.out.println("0. Rock");
-                          System.out.println("1. Paper");
-                          System.out.println("2. Scissors");
+                          print("Welcome to the java game of Rock Paper Scissors");
+                          print("| ScoreBoard: your wins are = " + wins + "| your losses are = " + losses + " | your ties are = " + ties + " |");
+                          print("It is you vs the machine choose your weapon by its number");
+                          print("0. Rock");
+                          print("1. Paper");
+                          print("2. Scissors");
               
                           user_choice = input.nextInt(); // Get user input from keyboard
                           machine_choice = myRand.nextInt(3); // Make a random number between 0 and 2 for the computer's choice.
               
                           // what each 'player' chose
-                          System.out.println("Machine throws... " + machine_choice + " _-_ You picked... " + user_choice);
+                          print("Machine throws... " + machine_choice + " _-_ You picked... " + user_choice);
               
                           // results logic
                           if (user_choice == machine_choice) {
                               ties++;
-                              System.out.println("It's a Tie Game!");
+                              print("It's a Tie Game!");
                           } else if ((user_choice == R && machine_choice == S) || (user_choice == S && machine_choice == P) || (user_choice == P && machine_choice == R)) {
                               wins++;
-                              System.out.println("You the user Wins!");
+                              print("You the user Wins!");
                           } else {
                               losses++;
-                              System.out.println("Sorry sport ... The Computer Wins!");
+                              print("Sorry sport ... The Computer Wins!");
                           }
-                          System.out.println("Want to continue playing ? ");
-                          System.out.println("enter any positive number to keep going, or enter any negative number to stop");
+                          print("Want to continue playing ? ");
+                          print("enter any positive number to keep going, or enter any negative number to stop");
                           int more = input.nextInt();
                           if (more < 0) {
-                              System.out.println("ok now bye bye then ");
-                              System.out.println("| ScoreBoard: your wins were = " + wins + "| your losses were = " + losses + " | your ties were = " + ties + " |");
+                              print("ok now bye bye then ");
+                              print("| ScoreBoard: your wins were = " + wins + "| your losses were = " + losses + " | your ties were = " + ties + " |");
                               keep_playing = false;
                           }
                       }
                   }
               }
-              
             </code>
           </pre>
         </figure>
@@ -913,7 +918,86 @@ while True:  # The main game loop.
           <figcaption>Java code here</figcaption>
           <pre class="prettyprint" >
             <code>
-                  java
+              import java.util.*;
+
+              /**
+               * RPS Refactoring
+               **/
+              
+              public class RPSfinal {
+                  public static final String TITLE = "RPSLX";
+                  public static final String GUESSES = "rpslx";
+                  public static String[] winners = {"rs", "sp", "pr", "px", "rl", "xs", "lx", "sl", "lp", "xr"};
+                  public static final String STOP = "stop";
+                  private static Scanner scanner = new Scanner(System.in); // let's talk about stdin, stdout, stderr
+              
+                  public static void main(String[] args) {
+                      int win = 0;
+                      int lose = 0;
+                      int draw = 0;
+                      Arrays.sort(winners);
+                      for (String userHand = getUserThrow();
+                           !userHand.equals(STOP);
+                           userHand = getUserThrow()) {
+                          String myHand = getComputerThrow();
+                          String combined = userHand + myHand; // not entirely easy to understand
+                          if (compareThrows(userHand, myHand)) { // concise if statement
+                              win++;
+                              showScore(win, lose, draw, "\nYou Won!", "Score: wins:");
+                          } else if (myHand.equals(userHand)) {
+                              draw++;
+                              showScore(win, lose, draw, "\nIt's a tie!", "Score: wins:");
+                          } else {
+                              lose++;
+                              showScore(win, lose, draw, "\nI win!", "Score: wins:");
+                          }
+                      }
+                      showScore(win, lose, draw, "\nThanks for playing!", "FINAL SCORE: wins:");
+                  }
+              
+                  private static boolean compareThrows(String userHand, String myHand) {
+                      String combined = userHand + myHand;
+                      int result = Arrays.binarySearch(winners, combined);
+                      return result >= 0;
+                  }
+              
+                  private static void print(Object o) {
+                      System.out.println(o);
+                  }
+              
+                  private static void showScore(int win, int lose, int draw, String s, String s2) {
+                      print(s);
+                      print(s2 + win + " lose: " + lose + " draw: " + draw); // this looks familiar
+                  }
+              
+                  private static String getComputerThrow() {
+                      int rnd = myRandom(0, GUESSES.length() - 1);
+                      String myHand = GUESSES.substring(rnd, rnd + 1); // notice scoping here - also, a bit obtuse
+                      print("I throw > " + myHand);
+                      return myHand;
+                  }
+              
+                  private static int myRandom(int min, int max) {
+                      return (int) Math.floor(Math.random() * (max - min)) + min;
+                  }
+              
+                  private static String getUserThrow() {
+                      print("\nLet's play " + TITLE);
+                      print("Throw one of " + GUESSES + "> ");
+                      String userHand = getUserThrowNormalized();
+                      while (!userHand.equals(STOP) && !GUESSES.contains(userHand)) { // good edit checks, concise albeit a bit obtuse
+                          print("\nPlease enter a valid throw");
+                          print("\nLet's play RPS"); // this looks familiar
+                          print("Throw one of 'rps' > ");// this looks familiar
+                          userHand = getUserThrowNormalized();
+                      }
+                      return userHand;
+                  }
+              
+                  private static String getUserThrowNormalized() {
+                      return scanner.nextLine().trim().toLowerCase();
+                  }
+              }
               
             </code>
           </pre>
