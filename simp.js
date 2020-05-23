@@ -390,4 +390,36 @@ function scoreW() {
   win.innerText = w;
 }
 
+
+// what to do
+
+/// get a joke
+/// awful format ALERT ?
+
+function get_joke_of_the_day() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      // Access the result here
+      console.log(this.responseText)
+      console.log(this.responseText.con)
+      //alert(this.responseText);
+    }
+  };
+  xhttp.open("GET", "https://api.jokes.one/jod?category=animal", true);
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.setRequestHeader("X-JokesOne-Api-Secret", "YOUR API HERE");
+  xhttp.send();
+}
+
+
+
+
+document.getElementById("makeJoke").addEventListener("click", function (event) {
+  event.preventDefault();
+});
+
+
+
+
 /// the end - code by: Brian Loveless
