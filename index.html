@@ -11,7 +11,7 @@
     ></script>
   </head>
   <body>
-    <h1 id="TOP">CODE COMPARE</h1>
+    <h1 id="TOP" class="pageTitle">CODE COMPARE</h1>
     <h2>Have you ever wondered what computer coding really is?</h2>
     <h2>Have you thought there is no way I could ever do that?</h2>
     <nav>
@@ -149,18 +149,27 @@
       new in 2019.
     </h2>
     <img
+      id="modalChart"
       src="./media/topLanguagesonGitHub.png"
       alt="chart showing JavaScript top language on github followed by Python second and Java third"
+      style="width: 100%; max-width: 570px;"
     />
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01" />
+      <div id="caption"></div>
+    </div>
+
     <h1 id="TIP">
       For all the likes and hates and all the differences these languages have
       essentially the can change numbers and words to make fantastic things
       happen.
     </h1>
     <h2>Let's take a look at how they perform some basic math for us.</h2>
-    <h1>tip calc</h1>
-    <h2>How much do I leave for a tip?</h2>
     <div class="tip">
+      <h1>tip calc</h1>
+      <h2>How much do I leave for a tip?</h2>
+
       <form>
         <h3>input the info to see</h3>
         <br />
@@ -175,14 +184,15 @@
           </h4>
         </div>
       </form>
-      <h3>
-        Manipulating numbers and other math tasks are easily and quickly done by
-        computers.
-      </h3>
-      <div class="jscode">
-        <figure>
-          <figcaption>JavaScript code here</figcaption>
-          <pre class="prettyprint">
+    </div>
+    <h3>
+      Manipulating numbers and other math tasks are easily and quickly done by
+      computers.
+    </h3>
+    <div class="jscode">
+      <figure>
+        <figcaption>JavaScript code here</figcaption>
+        <pre class="prettyprint">
             <code>
 // bill tip
 
@@ -202,23 +212,40 @@ document.getElementById("billset").addEventListener("click", function (event) {
 });
             </code>
           </pre>
-        </figure>
-      </div>
-      <div class="pycode">
-        <figure>
-          <figcaption>Python code here</figcaption>
-          <pre class="prettyprint">
+      </figure>
+    </div>
+    <div class="pycode">
+      <figure>
+        <figcaption>Python code here</figcaption>
+        <pre class="prettyprint">
             <code>
-                  python
+import sys
+
+while True:
+    print("welcome to tip clac enter the bill amount or q to exit")
+    bill = input()
+    if (bill == "q"):
+        sys.exit()
+    print("enter the percent to tip or q to exit")
+    percent = input()
+    if (percent == "q"):
+        sys.exit()
+    total = (int(percent)/100)* int(bill)
+    print(" for a bill of $" +bill +" tipping "+ percent +"% = $")
+    print(total)
+    print("run again? (y)es or (q) q for quit")
+    again = input()
+    if (again == 'q'):
+        sys.exit()
               
             </code>
           </pre>
-        </figure>
-      </div>
-      <div class="javacode">
-        <figure>
-          <figcaption>Java code here</figcaption>
-          <pre class="prettyprint">
+      </figure>
+    </div>
+    <div class="javacode">
+      <figure>
+        <figcaption>Java code here</figcaption>
+        <pre class="prettyprint">
             <code>
 package com.BrianLoveless1;
 
@@ -257,9 +284,9 @@ public class Main {
               
             </code>
           </pre>
-        </figure>
-      </div>
+      </figure>
     </div>
+
     <nav>
       <h3>take me somewhere else</h3>
       <a href="#TOP"> Top of page</a>

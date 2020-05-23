@@ -1,38 +1,127 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap");
 
 body {
-  background-color: rgb(227, 216, 248);
+  background-color: hsl(195, 33%, 81%);
   margin: 2%;
   padding: 5px;
   font-family: "Open Sans", sans-serif;
+}
+.pageTitle {
+  font-size: 4.7em;
+  text-align: center;
+}
+#modalChart {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#modalChart:hover {
+  opacity: 0.7;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.modal-content,
+#caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.tip {
+  background-color: hsl(195, 77%, 81%);
+  padding: 10px;
+  border-radius: 3px;
 }
 
 .align {
   display: block;
 }
 
-.jscode {
-  border: 5px solid red;
-  padding: 1px;
+.jscode,
+.pycode,
+.javacode {
+  border-radius: 10px;
+  padding: 3px;
   margin: 1%;
 }
-
+.jscode {
+  border: 6px solid red;
+}
 .pycode {
-  border: 5px solid green;
-  padding: 1px;
-  margin: 1%;
+  border: 6px solid green;
 }
 
 .javacode {
-  border: 5px solid blue;
-  padding: 1px;
-  margin: 1%;
+  border: 6px solid blue;
 }
 
 h1 {
   font-family: "Lato", sans-serif;
 }
-
 
 /* -- rpsls css -- */
 
