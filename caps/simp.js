@@ -14,7 +14,7 @@ function setBill() {
   let amount = 0;
   amount = bill * (tip / 100);
   console.log(amount);
-  clean = Math.round(amount * 100) / 100;
+  clean = "Tip amount : $ " + (Math.round(amount*100)/100).toFixed(2);
   let answer = document.getElementById("tipAmount");
   answer.textContent = clean;
 }

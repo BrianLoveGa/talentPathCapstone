@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="simp.css" type="text/css" />
     <title>pig latin</title>
-        <script
+    <script
       src="https://kit.fontawesome.com/70784aaaa8.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
-    <h1 id="top">CODE COMPARE</h1>
+    <h1 id="TOP">CODE COMPARE</h1>
     <h2>Have you ever wondered what computer coding really is?</h2>
     <h2>Have you thought there is no way I could ever do that?</h2>
+    <nav>
+      <h3>Take me to the games I don't want to read</h3>
+      <a href="#TIP"> Tip Calculator</a>
+      <a href="#PIG"> Pig Latin Translator</a>
+      <a href="#RPS"> Rock Paper Scissors</a>
+      <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a>
+    </nav>
     <p>
       This page is designed to help alleviate the stress and uncertiany of those
       very questions. At its core code is simply put instructions we programmers
@@ -145,7 +152,7 @@
       src="../media/topLanguagesonGitHub.png"
       alt="chart showing JavaScript top language on github followed by Python second and Java third"
     />
-    <h1>
+    <h1 id="TIP">
       For all the likes and hates and all the differences these languages have
       essentially the can change numbers and words to make fantastic things
       happen.
@@ -164,7 +171,6 @@
         <br />
         <div class="align">
           <h4>
-            Tip amount : $
             <div id="tipAmount"></div>
           </h4>
         </div>
@@ -178,16 +184,22 @@
           <figcaption>JavaScript code here</figcaption>
           <pre class="prettyprint">
             <code>
-              function setBill() {
-                let bill = document.getElementById("billAmount").value;
-                let tip = document.getElementById("tipPercent").value;
-                let amount = 0;
-                amount = bill * (tip / 100);
-                console.log(amount);
-                clean = (Math.round(amount * 100)) / 100;
-                let answer = document.getElementById("tipAmount");
-                answer.textContent = clean;
-               };
+// bill tip
+
+function setBill() {
+  let bill = document.getElementById("billAmount").value;
+  let tip = document.getElementById("tipPercent").value;
+  let amount = 0;
+  amount = bill * (tip / 100);
+  console.log(amount);
+  clean = "Tip amount : $ " + (Math.round(amount*100)/100).toFixed(2);
+  let answer = document.getElementById("tipAmount");
+  answer.textContent = clean;
+}
+// to stop page re-load while clicking 'Try me tip'
+document.getElementById("billset").addEventListener("click", function (event) {
+  event.preventDefault();
+});
             </code>
           </pre>
         </figure>
@@ -195,7 +207,7 @@
       <div class="pycode">
         <figure>
           <figcaption>Python code here</figcaption>
-          <pre class="prettyprint" >
+          <pre class="prettyprint">
             <code>
                   python
               
@@ -206,17 +218,56 @@
       <div class="javacode">
         <figure>
           <figcaption>Java code here</figcaption>
-          <pre class="prettyprint" >
+          <pre class="prettyprint">
             <code>
-                  java
+package com.BrianLoveless1;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        double bill = 0.00;
+        double tip = 0.00;
+        double amount = 0.00;
+        Scanner input = new Scanner(System.in);
+        boolean running = true;
+
+        while (running) {
+            print("Welcome to tip calc ... please input the bill amount");
+            bill = Double.parseDouble(input.nextLine().trim());
+            print("enter the percent you want to tip as a whole number");
+            tip = Double.parseDouble(input.nextLine().trim());
+            amount = (bill * (tip / 100) * 100) / 100;
+            print(" for the bill $" + bill + " & tipping " + tip + " % = $" + amount + " for the tip.");
+            print(" use again ? (y)es or (n)o ?");
+            String again = input.nextLine().toLowerCase();
+            if (again.startsWith("n")) {
+                running = false;
+                break;
+            }
+        }
+    }
+
+    public static void print(Object _O) {
+        System.out.println(_O);
+    }
+}
               
             </code>
           </pre>
         </figure>
       </div>
     </div>
+    <nav>
+      <h3>take me somewhere else</h3>
+      <a href="#TOP"> Top of page</a>
+      <a href="#RPS"> Rock Paper Scissors</a>
+      <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a>
+    </nav>
 
-    <h1>pig latin</h1>
+    <h1 id="PIG">pig latin</h1>
     <h2>It's not just numbers you can modify words too</h2>
     <h3>word to pig latinize</h3>
     <input type="text" id="pigWordIn" />
@@ -226,10 +277,10 @@
       Being able to change words referred to in all 3 languages as 'strings' is
       essential to coding
     </h3>
-          <div class="jscode">
-        <figure>
-          <figcaption>JavaScript code here</figcaption>
-          <pre class="prettyprint">
+    <div class="jscode">
+      <figure>
+        <figcaption>JavaScript code here</figcaption>
+        <pre class="prettyprint">
             <code>
 function piglatinize() {
   wordIn = document.getElementById("pigWordIn").value;
@@ -270,70 +321,157 @@ document
 
             </code>
           </pre>
-        </figure>
-      </div>
-      <div class="pycode">
-        <figure>
-          <figcaption>Python code here</figcaption>
-          <pre class="prettyprint" >
+      </figure>
+    </div>
+    <div class="pycode">
+      <figure>
+        <figcaption>
+          The site geeks for geeks has this example for Python
+        </figcaption>
+        <pre class="prettyprint">
             <code>
-                  python
+# Python program to encode a word to a Pig Latin. 
+  
+def isVowel(c): 
+    return (c == 'A' or c == 'E' or c == 'I' or
+            c == 'O' or c == 'U' or c == 'a' or
+            c == 'e' or c == 'i' or c == 'o' or
+            c == 'u'); 
+  
+  
+def pigLatin(s): 
+  
+    # the index of the first vowel is stored. 
+    length = len(s); 
+    index = -1; 
+    for i in range(length): 
+        if (isVowel(s[i])): 
+            index = i; 
+            break; 
+  
+    # Pig Latin is possible only if vowels 
+    # is present 
+    if (index == -1): 
+        return "-1"; 
+  
+    # Take all characters after index (including 
+    # index). Append all characters which are before 
+    # index. Finally append "ay" 
+    return s[index:] + s[0:index] + "ay"; 
+  
+str = pigLatin("graphic"); 
+if (str == "-1"): 
+    print("No vowels found. Pig Latin not possible"); 
+else: 
+    print(str); 
+  
+# This code contributed by Rajput-Ji 
               
             </code>
           </pre>
-        </figure>
-      </div>
-      <div class="javacode">
-        <figure>
-          <figcaption>Java code here</figcaption>
-          <pre class="prettyprint" >
+      </figure>
+    </div>
+    <div class="javacode">
+      <figure>
+        <figcaption>
+          The site geeks for geeks has this example for Java
+        </figcaption>
+        <pre class="prettyprint">
             <code>
-                  java
+// Java program to encode a word to a Pig Latin. 
+class GFG { 
+static boolean isVowel(char c) { 
+    return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || 
+            c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'); 
+} 
+  
+static String pigLatin(String s) { 
+  
+    // the index of the first vowel is stored. 
+    int len = s.length(); 
+    int index = -1; 
+    for (int i = 0; i < len; i++) 
+    { 
+        if (isVowel(s.charAt(i))) { 
+        index = i; 
+        break; 
+    } 
+    } 
+  
+    // Pig Latin is possible only if vowels 
+    // is present 
+    if (index == -1) 
+        return "-1"; 
+  
+    // Take all characters after index (including 
+    // index). Append all characters which are before 
+    // index. Finally append "ay" 
+    return s.substring(index) + 
+           s.substring(0, index) + "ay"; 
+} 
+  
+// Driver code 
+public static void main(String[] args) { 
+    String str = pigLatin("graphic"); 
+    if (str == "-1") 
+        System.out.print("No vowels found." +  
+                         "Pig Latin not possible"); 
+      
+    else
+        System.out.print(str); 
+} 
+} 
+// This code is contributed by Anant Agarwal. 
               
             </code>
           </pre>
-        </figure>
-      </div>
+      </figure>
     </div>
 
-    <h3>
+    <nav>
+      <h3>take me somewhere else</h3>
+      <a href="#TOP"> Top of page</a>
+      <a href="#TIP"> Tip Calculator</a>
+      <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a>
+    </nav>
+    <h3 id="RPS">
       Now that you can change numbers and change words you can grow these lines
-      of code into something more advanced like a game. Click or touch an icon for a round of Rock Paper Scissors.
+      of code into something more advanced like a game. Click or touch an icon
+      for a round of Rock Paper Scissors.
     </h3>
     <h1>rps</h1>
-      <div class="options">
-        <div class="game" id="rockChoice">
-          Rock<i class="far fa-hand-rock fa-3x"></i>
-        </div>
-        <div class="game" id="paperChoice">
-          Paper<i class="far fa-hand-paper fa-3x"></i>
-        </div>
-        <div class="game" id="scissorChoice">
-          Scissors<i class="far fa-hand-scissors fa-3x"></i>
-        </div>
-        </div>
-              <div class="gameBoardRPS">
-        <h2>your move :</h2>
-        <div class="yourChoice" id="player">choice</div>
-        <button class="rpsBtn" id="playRPS">PLAY R P S</button>
-
-        <h2>computer chose :</h2>
-        <div class="compChoice" id="opponet">rock</div>
+    <div class="options">
+      <div class="game" id="rockChoice">
+        Rock<i class="far fa-hand-rock fa-3x"></i>
       </div>
-      <div id="outcome"></div>
-      
+      <div class="game" id="paperChoice">
+        Paper<i class="far fa-hand-paper fa-3x"></i>
+      </div>
+      <div class="game" id="scissorChoice">
+        Scissors<i class="far fa-hand-scissors fa-3x"></i>
+      </div>
+    </div>
+    <div class="gameBoardRPS">
+      <h2>your move :</h2>
+      <div class="yourChoice" id="player">choice</div>
+      <button class="rpsBtn" id="playRPS">PLAY R P S</button>
 
+      <h2>computer chose :</h2>
+      <div class="compChoice" id="opponet">rock</div>
+    </div>
+    <div id="outcome"></div>
 
-      <div class="jscode">
-        <figure>
-          <figcaption>JavaScript code here</figcaption>
-          <pre class="prettyprint">
+    <div class="jscode">
+      <figure>
+        <figcaption>JavaScript code here</figcaption>
+        <pre class="prettyprint">
             <code>
 // rps
 // access the html 
 let playerChose = document.getElementById("player");
 let playerMove = "pick";
 playerChose.innerText = playerMove;
+
 // player / you pick rock
 let rockChosen = document.getElementById("rockChoice");
 rockChosen.addEventListener("click", rockChoice);
@@ -407,23 +545,87 @@ function winner(playerMove, om) {
 //////////////////////////
             </code>
           </pre>
-        </figure>
-      </div>
-      <div class="pycode">
-        <figure>
-          <figcaption>Python code here</figcaption>
-          <pre  class="prettyprint" >
+      </figure>
+    </div>
+    <div class="pycode">
+      <figure>
+        <figcaption>Python code here</figcaption>
+        <pre class="prettyprint">
             <code>
-                  python
+import random
+import sys
+
+wins = 0
+losses = 0
+ties = 0
+
+while True:  # The main game loop.
+    print('%s Wins, %s Losses, %s Ties' % (wins, losses, ties))
+    while True:  # The player input loop.
+        print('Enter your move: (ro)ck (pa)per (sc)issors or (q)uit')
+        playerMove = input()
+        if playerMove == 'q':
+            print('thanks for playing your final score was: ')
+            print('%s Wins, %s Losses, %s Ties' % (wins, losses, ties))
+            sys.exit()  # Quit the program.
+        if playerMove in['ro','pa','sc'] :
+            break  # Break out of the player input loop.
+        print('Type one of ro, pa, sc, or q.')
+
+    # Display what the player chose:
+    if playerMove == 'ro':
+        print('ROCK versus...')
+    elif playerMove == 'pa':
+        print('PAPER versus...')
+    elif playerMove == 'sc':
+        print('SCISSORS versus...')
               
+    # Display what the computer chose:
+    randomNumber = random.randint(1, 5)
+    if randomNumber == 1:
+        computerMove = 'ro'
+        print('ROCK')
+    elif randomNumber == 2:
+        computerMove = 'pa'
+        print('PAPER')
+    elif randomNumber == 3:
+        computerMove = 'sc'
+        print('SCISSORS')
+
+# Display and record the win/loss/tie:
+    # start with a tie
+    if playerMove == computerMove:
+        print('It is a tie!')
+        ties = ties + 1
+# Win
+    elif playerMove == 'ro' and computerMove == 'sc':
+        print('You win! rock crushes scissors')
+        wins = wins + 1
+    elif playerMove == 'pa' and computerMove == 'ro':
+        print('You win! paper covers rock')
+        wins = wins + 1
+    elif playerMove == 'sc' and computerMove == 'pa':
+        print('You win! scissors cuts paper')
+        wins = wins + 1
+# lose
+    elif playerMove == 'ro' and computerMove == 'pa':
+        print('You lose! computer paper covered your rock')
+        losses = losses + 1
+    elif playerMove == 'pa' and computerMove == 'sc':
+        print('You lose! computer scissors cut your paper')
+        losses = losses + 1
+    elif playerMove == 'sc' and computerMove == 'ro':
+        print('You lose! computer rock smashed your scissors')
+        losses = losses + 1
+   
             </code>
           </pre>
-        </figure>
-      </div>
-      <div class="javacode">
-        <figure>
-          <figcaption>Java code here</figcaption>
-          <pre class="prettyprint" >
+      </figure>
+    </div>
+    <div class="javacode">
+      <figure>
+        <figcaption>Java code here</figcaption>
+        <pre class="prettyprint">
             <code>
               import java.util.*;
 
@@ -451,7 +653,8 @@ function winner(playerMove, om) {
                       // gameplay
                       while (keep_playing) {
                           print("Welcome to the java game of Rock Paper Scissors");
-                          print("| ScoreBoard: your wins are = " + wins + "| your losses are = " + losses + " | your ties are = " + ties + " |");
+                          print("| ScoreBoard: your wins are = " + wins + "| your losses are = " + losses + " 
+                                   | your ties are = " + ties + " |");
                           print("It is you vs the machine choose your weapon by its number");
                           print("0. Rock");
                           print("1. Paper");
@@ -467,7 +670,8 @@ function winner(playerMove, om) {
                           if (user_choice == machine_choice) {
                               ties++;
                               print("It's a Tie Game!");
-                          } else if ((user_choice == R && machine_choice == S) || (user_choice == S && machine_choice == P) || (user_choice == P && machine_choice == R)) {
+                          } else if ((user_choice == R && machine_choice == S) || (user_choice == S && machine_choice == P) 
+                                        || (user_choice == P && machine_choice == R)) {
                               wins++;
                               print("You the user Wins!");
                           } else {
@@ -479,7 +683,9 @@ function winner(playerMove, om) {
                           int more = input.nextInt();
                           if (more < 0) {
                               print("ok now bye bye then ");
-                              print("| ScoreBoard: your wins were = " + wins + "| your losses were = " + losses + " | your ties were = " + ties + " |");
+                              print("| ScoreBoard: your wins were = " + wins +
+                               "| your losses were = " + losses + " | your ties were = " + ties + " |");
+
                               keep_playing = false;
                           }
                       }
@@ -487,64 +693,59 @@ function winner(playerMove, om) {
               }
             </code>
           </pre>
-        </figure>
+      </figure>
+    </div>
+
+    <h1 id="RPSLS">RPSLS</h1>
+    <hr />
+    <h2>Select your weapon below & click the shoot button to play</h2>
+
+    <div class="options">
+      <div class="game" id="rock">
+        Rock<i class="far fa-hand-rock fa-3x"></i>
+      </div>
+      <div class="game" id="paper">
+        Paper<i class="far fa-hand-paper fa-3x"></i>
+      </div>
+      <div class="game" id="scissors">
+        Scissors<i class="far fa-hand-scissors fa-3x"></i>
+      </div>
+      <div class="game" id="lizard">
+        Lizard<i class="far fa-hand-lizard fa-3x"></i>
+      </div>
+      <div class="game" id="spock">
+        Spock<i class="far fa-hand-spock fa-3x"></i>
       </div>
     </div>
 
-    <h1>RPSLS</h1>
-      <hr />
-      <h2>Select your weapon below & click the shoot button to play</h2>
+    <div class="moves">
+      <h2>your move :</h2>
+      <div class="yourMove" id="you">choice</div>
+      <button class="rpsBtn" id="shoot">SHOOT</button>
 
-      <div class="options">
-        <div class="game" id="rock">
-          Rock<i class="far fa-hand-rock fa-3x"></i>
-        </div>
-        <div class="game" id="paper">
-          Paper<i class="far fa-hand-paper fa-3x"></i>
-        </div>
-        <div class="game" id="scissors">
-          Scissors<i class="far fa-hand-scissors fa-3x"></i>
-        </div>
-        <div class="game" id="lizard">
-          Lizard<i class="far fa-hand-lizard fa-3x"></i>
-        </div>
-        <div class="game" id="spock">
-          Spock<i class="far fa-hand-spock fa-3x"></i>
-        </div>
-      </div>
+      <h2>computer throws :</h2>
+      <div class="compMove" id="comp">rock</div>
+    </div>
+    <div id="status">You Tie</div>
+    <div class="score">
+      <h2>
+        wins:
+        <div id="win">0</div>
+      </h2>
 
-      <div class="moves">
-        <h2>your move :</h2>
-        <div class="yourMove" id="you">choice</div>
-        <button class="rpsBtn" id="shoot">SHOOT</button>
+      <h2>
+        losses:
+        <div id="lose">0</div>
+      </h2>
 
-        <h2>computer throws :</h2>
-        <div class="compMove" id="comp">rock</div>
-      </div>
-      <div id="status">You Tie</div>
-      <div class="score">
-        <h2>
-          wins:
-          <div id="win">0</div>
-        </h2>
+      <h2>
+        ties:
+        <div id="tie">0</div>
+      </h2>
+    </div>
 
-        <h2>
-          losses:
-          <div id="lose">0</div>
-        </h2>
-
-        <h2>
-          ties:
-          <div id="tie">0</div>
-        </h2>
-      </div>
-
-      <a
-        class="reset"
-        href=""
-        >Click here to reset the score board</a
-      >
-      <hr />
+    <a class="reset" href="">Click here to reset the score board</a>
+    <hr />
     <div class="rpsls">
       <h4>
         you can then take a simple game and add to it going from 3 to 5 choices
@@ -553,9 +754,9 @@ function winner(playerMove, om) {
       <div class="jscode">
         <figure>
           <figcaption>JavaScript code here</figcaption>
-          <pre class="prettyprint" >
+          <pre class="prettyprint">
             <code>
-      /// click rock paper spock ect....
+/// click rock paper spock ect....
 /// word under your move changes
 /// color outline changes
 /// red rock, silver scissors, white paper, blue spock, green lizard
@@ -658,7 +859,7 @@ function rpsls(e) {
   }
 }
 
-/// tell you if round is a 'win', 'lose', or 'draw' ... - anyone remember that show?
+/// tell you if round is a 'win', 'lose', or 'draw'
 
 let status = document.getElementById("status");
 
@@ -774,7 +975,7 @@ function scoreW() {
       <div class="pycode">
         <figure>
           <figcaption>Python code here</figcaption>
-          <pre class="prettyprint" >
+          <pre class="prettyprint">
             <code>
                   import random
 import sys
@@ -916,7 +1117,7 @@ while True:  # The main game loop.
       <div class="javacode">
         <figure>
           <figcaption>Java code here</figcaption>
-          <pre class="prettyprint" >
+          <pre class="prettyprint">
             <code>
               import java.util.*;
 
@@ -929,7 +1130,7 @@ while True:  # The main game loop.
                   public static final String GUESSES = "rpslx";
                   public static String[] winners = {"rs", "sp", "pr", "px", "rl", "xs", "lx", "sl", "lp", "xr"};
                   public static final String STOP = "stop";
-                  private static Scanner scanner = new Scanner(System.in); // let's talk about stdin, stdout, stderr
+                  private static Scanner scanner = new Scanner(System.in);  
               
                   public static void main(String[] args) {
                       int win = 0;
@@ -940,8 +1141,8 @@ while True:  # The main game loop.
                            !userHand.equals(STOP);
                            userHand = getUserThrow()) {
                           String myHand = getComputerThrow();
-                          String combined = userHand + myHand; // not entirely easy to understand
-                          if (compareThrows(userHand, myHand)) { // concise if statement
+                          String combined = userHand + myHand;  
+                          if (compareThrows(userHand, myHand)) {  
                               win++;
                               showScore(win, lose, draw, "\nYou Won!", "Score: wins:");
                           } else if (myHand.equals(userHand)) {
@@ -967,12 +1168,12 @@ while True:  # The main game loop.
               
                   private static void showScore(int win, int lose, int draw, String s, String s2) {
                       print(s);
-                      print(s2 + win + " lose: " + lose + " draw: " + draw); // this looks familiar
+                      print(s2 + win + " lose: " + lose + " draw: " + draw);  
                   }
               
                   private static String getComputerThrow() {
                       int rnd = myRandom(0, GUESSES.length() - 1);
-                      String myHand = GUESSES.substring(rnd, rnd + 1); // notice scoping here - also, a bit obtuse
+                      String myHand = GUESSES.substring(rnd, rnd + 1);  
                       print("I throw > " + myHand);
                       return myHand;
                   }
@@ -985,7 +1186,7 @@ while True:  # The main game loop.
                       print("\nLet's play " + TITLE);
                       print("Throw one of " + GUESSES + "> ");
                       String userHand = getUserThrowNormalized();
-                      while (!userHand.equals(STOP) && !GUESSES.contains(userHand)) { // good edit checks, concise albeit a bit obtuse
+                      while (!userHand.equals(STOP) && !GUESSES.contains(userHand)) {  
                           print("\nPlease enter a valid throw");
                           print("\nLet's play RPS"); // this looks familiar
                           print("Throw one of 'rps' > ");// this looks familiar
@@ -1004,12 +1205,19 @@ while True:  # The main game loop.
         </figure>
       </div>
     </div>
-    </div>
+
+    <nav>
+      <h3>take me somewhere else</h3>
+      <a href="#TOP">Top of Page</a>
+      <a href="#TIP"> Tip Calculator</a>
+      <a href="#PIG"> Pig Latin Translator</a>
+      <a href="#RPS"> Rock Paper Scissors</a>
+    </nav>
     <div class="conclusion">
       <h1>So now what?</h1>
       <p>
         To get started using these click the links at the
-        <a href="#top">top</a> of the page to download Python or Java. There is
+        <a href="#TOP">top</a> of the page to download Python or Java. There is
         no requirement to download or install JavaScript to use it. You will
         want a code editor program to interact with these languages like VSCode,
         Atom, Sublime, Intelli-J or Eclipse which all have free versions or
@@ -1023,12 +1231,13 @@ while True:  # The main game loop.
         hands down winner or loser. You can use Node / Express (JavaScript) to
         make back-ends for websites or Django(Python) or Java DB / Springboot
         (Java). While they might have different ways of completing the tasks
-        assigned to them they are all capable of getting the job done
+        assigned to them they are all capable of getting the job done. yes sire
+        re bob just need to do like a million more things to be kinda done. oh
+        boy yippy skippy.
       </p>
     </div>
 
     <script type="text/javascript" src="simp.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-
   </body>
 </html>
