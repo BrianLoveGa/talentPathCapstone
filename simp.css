@@ -91,7 +91,8 @@ body {
   }
 }
 
-.tip {
+.tip,
+.pig {
   background-color: hsl(195, 77%, 81%);
   padding: 10px;
   border-radius: 3px;
