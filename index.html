@@ -4,6 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="simp.css" type="text/css" />
+        <link rel="icon" href="./media/BL-web-pico.png" />
+    <meta property="og:title" content="Welcome to Brian Loveless  .com" />
+    <meta
+      property="og:description"
+      content="A website to showcase my projects and skills as a software engineer.
+            Brian Loveless
+            Javascript,
+            Html,
+            Css,
+            Web-Site creation,
+            Web Development,
+            Software Engineering,
+            Computer Programming,
+            Full-Stack."
+    />
+    <meta
+      name="description"
+      content="A website to showcase my projects and skills as a software engineer.
+            Brian Loveless
+            Javascript,
+            Html,
+            Css,
+            Web-Site creation,
+            Web Development,
+            Software Engineering,
+            Computer Programming,
+            Full-Stack."
+    />
+    <meta name="author" content="Brian Loveless (B-Love)" 
     <title>Code Compare</title>
     <script
       src="https://kit.fontawesome.com/70784aaaa8.js"
@@ -22,7 +51,9 @@
       <a href="#TIP"> Tip Calculator</a> |
       <a href="#PIG"> Pig Latin Translator</a> |
       <a href="#RPS"> Rock Paper Scissors</a> |
-      <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a>
+      <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a> |
+      <a href="#WTHR"> Weather Forecast</a> |
+      <a href="#DOG"> Random Dog Picture</a>
     </nav>
     <p>
       This page is designed to help alleviate the stress and uncertainty of
@@ -367,7 +398,9 @@ public class Main {
       <h3>take me somewhere else</h3>
       <a href="#TOP"> Top of page</a> |
       <a href="#RPS"> Rock Paper Scissors</a> |
-      <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a>
+      <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a> |
+      <a href="#WTHR">Weather Forecast</a> |
+      <a href="#DOG">Random Dog Picture</a>
     </nav>
 
     <h1 id="PIG">Pig Latin</h1>
@@ -537,6 +570,8 @@ public static void main(String[] args) {
       <h3>take me somewhere else</h3>
       <a href="#TOP"> Top of page</a>| <a href="#TIP"> Tip Calculator</a>|
       <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a>|
+      <a href="#WTHR">Weather Forecast</a> |
+      <a href="#DOG">Random Dog Picture</a>
     </nav>
     <h3 id="RPS">
       Now that you can change numbers and change words you can grow these lines
@@ -802,6 +837,15 @@ while True:  # The main game loop.
           </pre>
       </figure>
     </div>
+    <br />
+        <nav>
+      <h3>take me somewhere else</h3>
+      <a href="#TOP"> Top of page</a>| <a href="#TIP"> Tip Calculator</a>|
+      <a href="#PIG"> Pig Latin Translator</a> |
+      <a href="#RPS"> Rock Paper Scissors </a>|
+      <a href="#WTHR"> Weather Forecast</a> |
+      <a href="#DOG"> Random Dog Picture</a>
+    </nav>
     <br />
     <h2>
       Now we can grow what we have above by adding two more playing options
@@ -1323,7 +1367,9 @@ while True:  # The main game loop.
       <h3>take me somewhere else</h3>
       <a href="#TOP">Top of Page</a>| <a href="#TIP"> Tip Calculator</a>|
       <a href="#PIG"> Pig Latin Translator</a>|
-      <a href="#RPS"> Rock Paper Scissors</a>
+      <a href="#RPS"> Rock Paper Scissors</a> |
+      <a href="DOG">Random Dog Picture</a>
+
     </nav>
     <div class="conclusion">
       <h1>So now what?</h1>
@@ -1347,7 +1393,7 @@ while True:  # The main game loop.
         the tasks assigned to them they are all capable of getting the job done.
       </p>
     </div>
-    <div class="weather">
+    <div class="weather" id="WTHR">
       <h2>You can do useful things like getting weather info from another site and display it on yours.</h2>
           <div class="app-wrap">
       <div class="mid">
@@ -1407,7 +1453,7 @@ while True:  # The main game loop.
       </div>
     </div>
     </div>
-    <div class="dogs">
+    <div id="DOG" class="dogs">
       <h2>You can also do less useful things like fetching a random picture of a dog from an API.</h2>
       <div className="DogContainer">
         <h1 className="Dog">Dog Pics</h1>
@@ -1417,7 +1463,18 @@ while True:  # The main game loop.
         <img class="dogImage" id="dogImage"  src="https://dog.ceo/img/dog-api-logo.svg" alt="random dog"></img>
       </div>
     </div>
-
+      <h3>Take me back I want to play again</h3>
+      <a href="#TOP"> Top of Page</a> |
+      <a href="#TIP"> Tip Calculator</a> |
+      <a href="#PIG"> Pig Latin Translator</a> |
+      <a href="#RPS"> Rock Paper Scissors</a> |
+      <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a> |
+      <a href="#WTHR"> Weather Forecast</a> 
+    </nav>
+<br />
+    <footer>
+      Made by: <a href="https://brianloveless.com/" target="_blank">Brian Loveless</a>
+    </footer>
 
     <script src="simp.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
