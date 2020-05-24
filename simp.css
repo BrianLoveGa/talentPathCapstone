@@ -413,6 +413,9 @@ main {
   background-color: rgb(136, 168, 180);
   padding: 18px;
 }
+.spacer{
+  height: 30px;;
+}
 
 .dogImage {
   max-width: 80%;
