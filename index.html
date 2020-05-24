@@ -51,61 +51,69 @@
       </p>
       <ul>
         <li>JavaScript</li>
-        <ul>
-          <li>
-            Originally released with Netscape Navigator as LiveScript in 1995.
-          </li>
-          <li>
-            JavaScript is most known as the scripting language for Web pages,
-            but used in many non-browser environments as well.
-          </li>
-          <li>In 2016 about 92% of all websites used JavaScript.</li>
-          <li>
-            JavaScript is high-level,multi-paradigm, and often just-in-time
-            compiled.
-          </li>
-          <li>JavaScript enables interactive web pages</li>
-          <li>
-            JavaScript supports event-driven, imperative, and functional
-            programming styles.
-          </li>
-          <li>&nbsp</li>
-          <!--  https://www.checkmarx.com/blog/javascript-history-infographic/ 
+        <li>
+          <ul>
+            <li>
+              Originally released with Netscape Navigator as LiveScript in 1995.
+            </li>
+            <li>
+              JavaScript is most known as the scripting language for Web pages,
+              but used in many non-browser environments as well.
+            </li>
+            <li>In 2016 about 92% of all websites used JavaScript.</li>
+            <li>
+              JavaScript is high-level,multi-paradigm, and often just-in-time
+              compiled.
+            </li>
+            <li>JavaScript enables interactive web pages</li>
+            <li>
+              JavaScript supports event-driven, imperative, and functional
+              programming styles.
+            </li>
+            <li>&nbsp;</li>
+            <!--  https://www.checkmarx.com/blog/javascript-history-infographic/ 
           https://en.wikipedia.org/wiki/JavaScript 
           https://stackshare.io/stackups/java-vs-javascript-vs-python#description
           https://developer.mozilla.org/en-US/docs/Web/JavaScript
-        --></ul>
+        -->
+          </ul>
+        </li>
         <li>Python</li>
-        <ul>
-          <li>
-            Python is an interpreted, high-level, general purpose programming
-            language created by Guido Van Rossum in 1991.
-          </li>
-          <li>
-            Python is dynamically typed and garbage-collected. It supports
-            multiple programming paradigms, including structured (particularly,
-            procedural), object-oriented, and functional programming.
-          </li>
-          <li>py charm</li>
-          <li>&nbsp</li>
-          <!--  https://en.wikipedia.org/wiki/Python_(programming_language) 
+        <li>
+          <ul>
+            <li>
+              Python is an interpreted, high-level, general purpose programming
+              language created by Guido Van Rossum in 1991.
+            </li>
+            <li>
+              Python is dynamically typed and garbage-collected. It supports
+              multiple programming paradigms, including structured
+              (particularly, procedural), object-oriented, and functional
+              programming.
+            </li>
+            <li>py charm</li>
+            <li>&nbsp;</li>
+            <!--  https://en.wikipedia.org/wiki/Python_(programming_language) 
           https://www.python.org/doc/-->
-        </ul>
+          </ul>
+        </li>
         <li>Java</li>
-        <ul>
-          <li>
-            Java is a programming language and computing platform first released
-            by Sun Microsystems in 1995.
-          </li>
-          <li>
-            Java is class-based, object-oriented, and designed to have as few
-            implementation dependencies as possible.
-          </li>
-          <li>js tres</li>
-          <li>&nbsp</li>
-          <!--  https://en.wikipedia.org/wiki/Java_(programming_language) 
+        <li>
+          <ul>
+            <li>
+              Java is a programming language and computing platform first
+              released by Sun Microsystems in 1995.
+            </li>
+            <li>
+              Java is class-based, object-oriented, and designed to have as few
+              implementation dependencies as possible.
+            </li>
+            <li>js tres</li>
+            <li>&nbsp;</li>
+            <!--  https://en.wikipedia.org/wiki/Java_(programming_language) 
           https://www.oracle.com/java/technologies/-->
-        </ul>
+          </ul>
+        </li>
       </ul>
     </div>
     <h1>So what are developers saying about these languages?</h1>
@@ -156,7 +164,11 @@
     />
     <div id="myModal" class="modal">
       <span class="close">&times;</span>
-      <img class="modal-content" id="img01" />
+      <img
+        class="modal-content"
+        id="img01"
+        alt="full screen version of chart above"
+      />
       <div id="caption"></div>
     </div>
 
@@ -179,9 +191,7 @@
         <button id="billset" onclick="setBill()">Try me tip</button>
         <br />
         <div class="align">
-          <h4>
-            <div id="tipAmount"></div>
-          </h4>
+          <div id="tipAmount"></div>
         </div>
       </form>
     </div>
@@ -755,20 +765,9 @@ while True:  # The main game loop.
     </div>
     <div id="status">You Tie</div>
     <div class="score">
-      <h2>
-        wins:
-        <div id="win">0</div>
-      </h2>
-
-      <h2>
-        losses:
-        <div id="lose">0</div>
-      </h2>
-
-      <h2>
-        ties:
-        <div id="tie">0</div>
-      </h2>
+      <div id="win">0</div>
+      <div id="lose">0</div>
+      <div id="tie">0</div>
     </div>
 
     <a class="reset" href="">Click here to reset the score board</a>
@@ -1265,7 +1264,7 @@ while True:  # The main game loop.
     </div>
     <!-- <button id="makeJoke" onclick="get_joke_of_the_day()">Get a Joke</button> -->
 
-    <script type="text/javascript" src="simp.js"></script>
+    <script src="simp.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   </body>
 </html>

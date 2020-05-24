@@ -377,17 +377,17 @@ t = 0;
 /// if it's a tie
 function scoreT() {
   t += 1;
-  tie.innerText = t;
+  tie.innerText = "ties: "+t;
 }
 /// if its a loss
 function scoreL() {
   l += 1;
-  lose.innerText = l;
+  lose.innerText = "losses: " +l;
 }
 /// if you win - yeah right - you won't.
 function scoreW() {
   w += 1;
-  win.innerText = w;
+  win.innerText = "wins: "+w;
 }
 
 
