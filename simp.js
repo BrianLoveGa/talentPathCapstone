@@ -7,6 +7,49 @@ console.log("check");
 /// extra rps
 /// closing
 
+/// fun scroll
+
+let i = 0;
+let j = 0;
+let k = 0;
+let txtJavaScript =
+  "JavaScript is the best language for programming!"; /* The text */
+let txtPython = "Python is the better programming language!";
+let txtJava = "No Java is the best programming language!";
+let speedJS = 70; /* The speed/duration of the effect in milliseconds */
+let speedPY = 125;
+let speedJV = 175;
+
+function typeWriterJS() {
+  if (i < txtJavaScript.length) {
+    document.getElementById("scrollWordsJS").innerHTML += txtJavaScript.charAt(
+      i
+    );
+    i++;
+    setTimeout(typeWriterJS, speedJS);
+  }
+}
+
+function typeWriterPY() {
+  if (j < txtPython.length) {
+    document.getElementById("scrollWordsPY").innerHTML += txtPython.charAt(j);
+    j++;
+    setTimeout(typeWriterPY, speedPY);
+  }
+}
+
+function typeWriterJV() {
+  if (k < txtJava.length) {
+    document.getElementById("scrollWordsJV").innerHTML += txtJava.charAt(k);
+    k++;
+    setTimeout(typeWriterJV, speedJV);
+  }
+}
+
+typeWriterJS();
+typeWriterPY();
+typeWriterJV();
+
 // modal
 
 // Get the modal
@@ -16,19 +59,19 @@ var modal = document.getElementById("myModal");
 var img = document.getElementById("modalChart");
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
-img.onclick = function(){
+img.onclick = function () {
   modal.style.display = "block";
   modalImg.src = this.src;
   captionText.innerHTML = this.alt;
-}
+};
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
-}
+};
 
 // bill tip
 
@@ -38,7 +81,7 @@ function setBill() {
   let amount = 0;
   amount = bill * (tip / 100);
   console.log(amount);
-  clean = "Tip amount : $ " + (Math.round(amount*100)/100).toFixed(2);
+  clean = "Tip amount : $ " + (Math.round(amount * 100) / 100).toFixed(2);
   let answer = document.getElementById("tipAmount");
   answer.textContent = clean;
 }
@@ -101,7 +144,7 @@ document
 //  console.log("HEY HEY");
 
 // rps
-// access the html 
+// access the html
 let playerChose = document.getElementById("player");
 let playerMove = "pick";
 playerChose.innerText = playerMove;
@@ -142,7 +185,7 @@ let play = document.getElementById("playRPS");
 play.addEventListener("click", rps);
 // display computers choice
 let opponet = document.getElementById("opponet");
-//  the game 
+//  the game
 function rps(e) {
   // keep window open don't re-load page
   e.preventDefault();
@@ -377,49 +420,288 @@ t = 0;
 /// if it's a tie
 function scoreT() {
   t += 1;
-  tie.innerText = "ties: "+t;
+  tie.innerText = "ties: " + t;
 }
 /// if its a loss
 function scoreL() {
   l += 1;
-  lose.innerText = "losses: " +l;
+  lose.innerText = "losses: " + l;
 }
 /// if you win - yeah right - you won't.
 function scoreW() {
   w += 1;
-  win.innerText = "wins: "+w;
+  win.innerText = "wins: " + w;
 }
-
 
 // what to do
 
 /// get a joke
 /// awful format ALERT ?
 
-function get_joke_of_the_day() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      // Access the result here
-      console.log(this.responseText)
-      console.log(this.responseText.con)
-      //alert(this.responseText);
-    }
-  };
-  xhttp.open("GET", "https://api.jokes.one/jod?category=animal", true);
-  xhttp.setRequestHeader("Content-type", "application/json");
-  xhttp.setRequestHeader("X-JokesOne-Api-Secret", "YOUR API HERE");
-  xhttp.send();
+// function get_joke_of_the_day() {
+//   var xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function () {
+//     if (this.readyState == 4 && this.status == 200) {
+//       // Access the result here
+//       console.log(this.responseText);
+//       console.log(this.responseText.con);
+//       //alert(this.responseText);
+//     }
+//   };
+//   xhttp.open("GET", "https://api.jokes.one/jod?category=animal", true);
+//   xhttp.setRequestHeader("Content-type", "application/json");
+//   xhttp.setRequestHeader("X-JokesOne-Api-Secret", "YOUR API HERE");
+//   xhttp.send();
+// }
+
+// document.getElementById("makeJoke").addEventListener("click", function (event) {
+//   event.preventDefault();
+// });
+
+
+/// let's just random dog pics and weather like we had on old site.
+
+// weather first
+/// to get weather data for free
+const api = {
+  key: "2416761b1a4e0e266b8e6bb58c037760",
+  base: "https://api.openweathermap.org/data/2.5/"
+};
+
+// the search box
+const searchbox = document.querySelector(".search-box");
+
+// the f system button
+const buttonUS = document.querySelector(".click");
+buttonUS.addEventListener("click", setQuery);
+
+function setQuery() {
+  getResults(searchbox.value);
+  getForecast(searchbox.value);
+  console.log(searchbox.value);
+}
+// imperial in url for american units
+function getResults(query) {
+  fetch(`${api.base}weather?q=${query}&units=imperial&APPID=${api.key}`)
+    .then(weather => {
+      //console.log(weather.json());
+      return weather.json();
+    })
+    .then(displayResults);
+}
+// the c system button (b/c life is about choices)
+const buttonIntl = document.querySelector(".klick");
+buttonIntl.addEventListener("click", goMetric);
+
+function goMetric() {
+  getMetricResults(searchbox.value); /// maybe not the best way to swap units but it works
+  getForecast(searchbox.value); /// not using any digits so no need to swap this to metric
+  console.log(searchbox.value);
+}
+// metric in same url as above. And forecast instead of weather at bottom of page... I should reduce / refactor them more but they are working
+function getMetricResults(city) {
+  fetch(`${api.base}weather?q=${city}&units=metric&APPID=${api.key}`)
+    .then(weather => {
+      //console.log(weather.json());
+      return weather.json();
+    })
+    .then(displayMetricResults);
+}
+
+/// dom manip - lets show some forecst
+function displayResults(weather) {
+  console.log(weather);
+  let city = document.querySelector(".location .city");
+  city.innerText = `${weather.name}, ${weather.sys.country}`;
+
+  let now = new Date();
+  let date = document.querySelector(".location .date");
+  date.innerText = dateBuilder(now);
+
+  let pic = document.querySelector(".wthrPic");
+  pic.src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
+
+  let weather_desc = document.querySelector(".current .description");
+  weather_desc.innerText = weather.weather[0].description;
+
+  let temp = document.querySelector(".current .temp");
+  temp.innerHTML = `${Math.round(weather.main.temp)}<span>°f</span>`;
+
+  let weather_el = document.querySelector(".current .weather");
+  weather_el.innerText = weather.weather[0].main;
+
+  let hilow = document.querySelector(".hi-low");
+  hilow.innerText = `LOW ${Math.round(
+    weather.main.temp_min
+  )}°f / HIGH ${Math.round(weather.main.temp_max)}°f`;
+
+  let windSpeed = document.querySelector(".windSpeed");
+  windSpeed.innerText = ` wind speed at ${weather.wind.speed}  mph`;
+
+  let windGusts = document.querySelector(".windGust");
+  windGusts.innerText = ` Gusts @ ${weather.wind.gust}`;
+
+  let pressHumid = document.querySelector(".press");
+  pressHumid.innerText = ` pressure @ ${weather.main.pressure} millibars & humidity  @ ${weather.main.humidity} %`;
+
+  let feelsLike = document.querySelector(".feels");
+  feelsLike.innerText = ` Feels like ${weather.main.feels_like} °f`;
+
+  factSwap(); // learning is fun!
+}
+/// the same info with a c instead of f and a k instead of m .... or vice versa if you read this upside down...
+function displayMetricResults(weather) {
+  console.log(weather);
+  let city = document.querySelector(".location .city");
+  city.innerText = `${weather.name}, ${weather.sys.country}`;
+
+  let now = new Date();
+  let date = document.querySelector(".location .date");
+  date.innerText = dateBuilder(now);
+
+  let pic = document.querySelector(".wthrPic");
+  pic.src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
+
+  let weather_desc = document.querySelector(".current .description");
+  weather_desc.innerText = weather.weather[0].description;
+
+  let temp = document.querySelector(".current .temp");
+  temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
+
+  let weather_el = document.querySelector(".current .weather");
+  weather_el.innerText = weather.weather[0].main;
+
+  let hilow = document.querySelector(".hi-low");
+  hilow.innerText = `LOW ${Math.round(
+    weather.main.temp_min
+  )}°c / HIGH ${Math.round(weather.main.temp_max)}°c`;
+
+  let windSpeed = document.querySelector(".windSpeed");
+  windSpeed.innerText = ` wind speed at ${weather.wind.speed}  kph`;
+
+  let windGusts = document.querySelector(".windGust");
+  windGusts.innerText = ` Gusts @ ${weather.wind.gust}`;
+
+  let pressHumid = document.querySelector(".press");
+  pressHumid.innerText = ` pressure @ ${weather.main.pressure} millibars & humidity  @ ${weather.main.humidity} %`;
+
+  let feelsLike = document.querySelector(".feels");
+  feelsLike.innerText = ` Feels like ${weather.main.feels_like} °c`;
+
+  factSwap(); // knowledge is power
+}
+
+/// since open weather api has such a lovely date format, let's make it more readable
+/// and tie it to the users computer with js built in date function
+// helper functions below
+
+function dateBuilder(d) {
+  let months = [
+    "January",
+    "Feburary",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+
+  let day = days[d.getDay()];
+  let date = d.getDate();
+  let month = months[d.getMonth()];
+  let year = d.getFullYear();
+
+  return `${day} ${date} ${month} ${year}`;
+}
+
+// because who doesn't like math and fun facts?
+// in the middle of the weather page
+
+const funFacts = document.querySelector(".fact");
+
+const facts = [
+  "Wind comes from changes in pressure.",
+  "Cirrus clouds (the thin and wispy ones) are made of ice crystals.",
+  "The average pressure at sea level is 1013.25 millibars.",
+  "You can tell the temperature by counting a cricket’s chirps.",
+  "A mudslide can carry rocks, trees, vehicles and entire buildings!",
+  "About 2,000 thunderstorms rain down on Earth every minute.",
+  "A 2003 heatwave turned grapes to raisins before they were picked from the vine!",
+  "In 1972, a blizzard dumped 8m of snowfall on Iran, burying 200 villages.",
+  "In 1684, it was so cold that the River Thames froze solid for two months.",
+  "At any given time, on average there are about 1800 thunderstorms occurring on Earth with 100 lightning strikes per second.",
+  "A cubic mile of ordinary fog contains less than a gallon of water.",
+  "Snowflakes falling at 2-4 mph can take up to 1 hour to reach the ground."
+];
+
+function factSwap() {
+  let n = Math.floor(Math.random() * 12);
+  funFacts.innerText = facts[n];
+}
+
+/// forecast  / future weather below current
+
+// get functions 
+function getForecast(city) {
+  fetch(`${api.base}forecast?q=${city}&units=imperial&APPID=${api.key}`)
+    .then(forecast => {
+      return forecast.json();
+    })
+    .then(displayResultsForecast);
+}
+
+// html elements to change
+// functions to make the changes
+function displayResultsForecast(forecast) {
+  console.log(forecast);
+  console.log(forecast.list);
+  let tomorrow = document.querySelector(".tomorrow");
+  tomorrow.innerText = `Tomorrow will be: ${forecast.list[6].weather[0].main}`;
+  let twoDays = document.querySelector(".twoDays");
+  twoDays.innerText = ` In two days it will be: ${forecast.list[15].weather[0].main}`
 }
 
 
+// from dog.ceo api - @ https://dog.ceo/dog-api/
+// function to perform a get request
+function httpGet(theUrl) {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", theUrl, false); // false for synchronous request ... is deprecated but just one pic not too bad for U/X
+  xmlHttp.send(null);
+  return xmlHttp.responseText;
+}
 
+// function to get a random image
+function getRandomImage() {
+  // get the json from the server
+  var json = httpGet("https://dog.ceo/api/breeds/image/random");
+  // decode the json into an array
+  var array = JSON.parse(json);
+  // get the image url from the array
+  var url = array.message;
+  // get the image object
+  var image = document.getElementById("dogImage");
+  // set the src of the image object
+  image.src = url;
+}
 
-document.getElementById("makeJoke").addEventListener("click", function (event) {
+document.getElementById("dogPic").addEventListener("click", function (event) {
   event.preventDefault();
 });
-
-
 
 
 /// the end - code by: Brian Loveless
