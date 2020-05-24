@@ -5,10 +5,16 @@ body {
   margin: 2%;
   padding: 5px;
   font-family: "Open Sans", sans-serif;
+  color: black;
 }
 .pageTitle {
   font-size: 4.7em;
   text-align: center;
+}
+
+.resp {
+  max-width: 100%;
+  height: auto;
 }
 #modalChart {
   border-radius: 5px;
@@ -92,10 +98,12 @@ body {
 }
 
 .tip,
-.pig {
+.pig,
+.interactive {
   background-color: hsl(195, 77%, 81%);
   padding: 10px;
   border-radius: 3px;
+  color: black;
 }
 
 .align {
@@ -195,4 +203,21 @@ h1 {
   background-color: black;
   color: white;
   border: 2px solid white;
+}
+
+pre {
+  margin: 2%;
+  white-space: pre-wrap; //css3
+  white-space: moz-pre-wrap; //firefox
+  white-space: -pre-wrap; //opera 4-6
+  white-space: -o-pre-wrap; //opera 7
+  word-wrap: break-word; //internet explorer
+}
+
+code {
+  padding: 20px;
+}
+
+nav{
+  background-color: hsl(195, 87%, 81%)
 }

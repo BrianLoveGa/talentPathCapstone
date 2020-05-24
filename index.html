@@ -16,9 +16,9 @@
     <h2>Have you thought there is no way I could ever do that?</h2>
     <nav>
       <h3>Take me to the games I don't want to read these facts.</h3>
-      <a href="#TIP"> Tip Calculator</a>
-      <a href="#PIG"> Pig Latin Translator</a>
-      <a href="#RPS"> Rock Paper Scissors</a>
+      <a href="#TIP"> Tip Calculator</a> |
+      <a href="#PIG"> Pig Latin Translator</a> |
+      <a href="#RPS"> Rock Paper Scissors</a> |
       <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a>
     </nav>
     <p>
@@ -52,8 +52,8 @@
     <h1>Comparision facts</h1>
     <div class="intro">
       <p>
-        These languages are all very different but have similar ways of
-        changing numbers and words.
+        These languages are all very different but have similar ways of changing
+        numbers and words.
       </p>
       <ul>
         <li>JavaScript</li>
@@ -159,6 +159,7 @@
       >
     </h3>
     <img
+      class="resp"
       src="./media/titleBar.png"
       alt="JavaScript Python and Java logos aligned with Java reporting 48.4k stacks, JavaScript reporting 102.6k stacks and Python reporting 65.7k stacks currently active."
     />
@@ -168,6 +169,7 @@
     </h3>
     <h2>Why do they like these languages?</h2>
     <img
+      class="resp"
       src="./media/whyChoose.png"
       alt="infographic of why people like one of these language"
     />
@@ -177,6 +179,7 @@
     </h3>
     <h2>What do they dislike about these languages?</h2>
     <img
+      class="resp"
       src="./media/whyBad.png"
       alt="infographic of why java python and javascript are 'bad'"
     />
@@ -351,8 +354,8 @@ public class Main {
 
     <nav>
       <h3>take me somewhere else</h3>
-      <a href="#TOP"> Top of page</a>
-      <a href="#RPS"> Rock Paper Scissors</a>
+      <a href="#TOP"> Top of page</a> |
+      <a href="#RPS"> Rock Paper Scissors</a> |
       <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a>
     </nav>
 
@@ -365,7 +368,7 @@ public class Main {
       <div id="pigWordOut"></div>
       <h3>
         Being able to change words referred to in all 3 languages as 'strings'
-        is essential to coding
+        is essential skill in coding.
       </h3>
     </div>
     <div class="jscode">
@@ -521,9 +524,8 @@ public static void main(String[] args) {
 
     <nav>
       <h3>take me somewhere else</h3>
-      <a href="#TOP"> Top of page</a>
-      <a href="#TIP"> Tip Calculator</a>
-      <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a>
+      <a href="#TOP"> Top of page</a>| <a href="#TIP"> Tip Calculator</a>|
+      <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a>|
     </nav>
     <h3 id="RPS">
       Now that you can change numbers and change words you can grow these lines
@@ -532,26 +534,28 @@ public static void main(String[] args) {
       round of Rock Paper Scissors.
     </h3>
     <h1>rps</h1>
-    <div class="options">
-      <div class="game" id="rockChoice">
-        Rock<i class="far fa-hand-rock fa-3x"></i>
+    <div class="interactive">
+      <div class="options">
+        <div class="game" id="rockChoice">
+          Rock<i class="far fa-hand-rock fa-3x"></i>
+        </div>
+        <div class="game" id="paperChoice">
+          Paper<i class="far fa-hand-paper fa-3x"></i>
+        </div>
+        <div class="game" id="scissorChoice">
+          Scissors<i class="far fa-hand-scissors fa-3x"></i>
+        </div>
       </div>
-      <div class="game" id="paperChoice">
-        Paper<i class="far fa-hand-paper fa-3x"></i>
-      </div>
-      <div class="game" id="scissorChoice">
-        Scissors<i class="far fa-hand-scissors fa-3x"></i>
-      </div>
-    </div>
-    <div class="gameBoardRPS">
-      <h2>your move :</h2>
-      <div class="yourChoice" id="player">choice</div>
-      <button class="rpsBtn" id="playRPS">PLAY R P S</button>
+      <div class="gameBoardRPS">
+        <h2>your move :</h2>
+        <div class="yourChoice" id="player">choice</div>
+        <button class="rpsBtn" id="playRPS">PLAY R P S</button>
 
-      <h2>computer chose :</h2>
-      <div class="compChoice" id="opponet">rock</div>
+        <h2>computer chose :</h2>
+        <div class="compChoice" id="opponet">rock</div>
+      </div>
+      <div id="outcome"></div>
     </div>
-    <div id="outcome"></div>
 
     <div class="jscode">
       <figure>
@@ -794,41 +798,42 @@ while True:  # The main game loop.
 
     <h1 id="RPSLS">RPSLS</h1>
     <hr />
-    <h2>Select your weapon below & click the shoot button to play</h2>
+    <div class="interactive">
+      <h2>Select your weapon below & click the shoot button to play</h2>
 
-    <div class="options">
-      <div class="game" id="rock">
-        Rock<i class="far fa-hand-rock fa-3x"></i>
+      <div class="options">
+        <div class="game" id="rock">
+          Rock<i class="far fa-hand-rock fa-3x"></i>
+        </div>
+        <div class="game" id="paper">
+          Paper<i class="far fa-hand-paper fa-3x"></i>
+        </div>
+        <div class="game" id="scissors">
+          Scissors<i class="far fa-hand-scissors fa-3x"></i>
+        </div>
+        <div class="game" id="lizard">
+          Lizard<i class="far fa-hand-lizard fa-3x"></i>
+        </div>
+        <div class="game" id="spock">
+          Spock<i class="far fa-hand-spock fa-3x"></i>
+        </div>
       </div>
-      <div class="game" id="paper">
-        Paper<i class="far fa-hand-paper fa-3x"></i>
+
+      <div class="moves">
+        <h2>your move :</h2>
+        <div class="yourMove" id="you">choice</div>
+        <button class="rpsBtn" id="shoot">SHOOT</button>
+
+        <h2>computer throws :</h2>
+        <div class="compMove" id="comp">rock</div>
       </div>
-      <div class="game" id="scissors">
-        Scissors<i class="far fa-hand-scissors fa-3x"></i>
-      </div>
-      <div class="game" id="lizard">
-        Lizard<i class="far fa-hand-lizard fa-3x"></i>
-      </div>
-      <div class="game" id="spock">
-        Spock<i class="far fa-hand-spock fa-3x"></i>
+      <div id="status">You Tie</div>
+      <div class="score">
+        <div id="win">0</div>
+        <div id="lose">0</div>
+        <div id="tie">0</div>
       </div>
     </div>
-
-    <div class="moves">
-      <h2>your move :</h2>
-      <div class="yourMove" id="you">choice</div>
-      <button class="rpsBtn" id="shoot">SHOOT</button>
-
-      <h2>computer throws :</h2>
-      <div class="compMove" id="comp">rock</div>
-    </div>
-    <div id="status">You Tie</div>
-    <div class="score">
-      <div id="win">0</div>
-      <div id="lose">0</div>
-      <div id="tie">0</div>
-    </div>
-
     <a class="reset" href="https://brianlovega.github.io/talentPathCapstone/"
       >Click here to reset the score board</a
     >
@@ -1065,10 +1070,7 @@ function scoreW() {
 import sys
 
 # lets zazz it up here and make a rock paper scissors 
-#  with lizard & spock version
-# https://en.wikipedia.org/wiki/Rock_paper_scissors#Additional_weapons
-# or if you're visual ... 
-# https://en.wikipedia.org/wiki/Rock_paper_scissors#/media/File:Rock_Paper_Scissors_Lizard_Spock_en.svg
+# with lizard & spock version
 
 wins = 0
 losses = 0
@@ -1125,8 +1127,9 @@ while True:  # The main game loop.
         ties = ties + 1
 
     # ways you win
-    # 2 ways to win with each option - 10 total outcomes
-    #                                - 6 outcomes if classic Rock Paper Scissors
+    # 2 ways to win with each option 
+    # - 10 total outcomes
+    # - 6 outcomes if classic Rock Paper Scissors
 
     elif playerMove == 'ro' and computerMove == 'sc':
         print('You win! rock crushes scissors')
@@ -1307,9 +1310,8 @@ while True:  # The main game loop.
 
     <nav>
       <h3>take me somewhere else</h3>
-      <a href="#TOP">Top of Page</a>
-      <a href="#TIP"> Tip Calculator</a>
-      <a href="#PIG"> Pig Latin Translator</a>
+      <a href="#TOP">Top of Page</a>| <a href="#TIP"> Tip Calculator</a>|
+      <a href="#PIG"> Pig Latin Translator</a>|
       <a href="#RPS"> Rock Paper Scissors</a>
     </nav>
     <div class="conclusion">
@@ -1320,17 +1322,18 @@ while True:  # The main game loop.
         no requirement to download or install JavaScript to use it. You will
         want a code editor program to interact with these languages like VSCode,
         Atom, Sublime, Intelli-J, or Eclipse which all have free versions or
-        trials.
+        trials. There are many courses and tutorials out there from the creators
+        of these programs as well as by those who use them.
       </p>
       <p>
         Well now you know that these languages are very different but at their
         core modifying and manipulating words and numbers is all any computer
-        program does. While they might have slightly different approaches
-        and some programmers swear by one and curse the other. Honestly there is no one clear
-        hands-down winner or loser. You can use Node / Express (JavaScript) to
-        make back-ends for websites or Django(Python) or Java DB / Springboot
-        (Java). While they might have different ways of completing the tasks
-        assigned to them they are all capable of getting the job done.
+        program does. While they might have slightly different approaches and
+        some programmers swear by one and curse the other. Honestly there is no
+        one clear hands-down winner or loser. You can use Node / Express
+        (JavaScript) to make back-ends for websites or Django(Python) or Java DB
+        / Springboot (Java). While they might have different ways of completing
+        the tasks assigned to them they are all capable of getting the job done.
       </p>
     </div>
     <!-- this free api has a joke of the day alert pop up but formatting is awful unless I have a paid subscription
