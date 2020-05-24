@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="simp.css" type="text/css" />
-        <link rel="icon" href="./media/BL-web-pico.png" />
+    <link rel="icon" href="./media/BL-web-pico.png" />
     <meta property="og:title" content="Welcome to Brian Loveless  .com" />
     <meta
       property="og:description"
-      content="A website to showcase my projects and skills as a software engineer.
+      content="A website to showcase my skills as a software engineer.
             Brian Loveless
             Javascript,
             Html,
             Css,
-            Web-Site creation,
-            Web Development,
+            Java,
+            Python,
             Software Engineering,
             Computer Programming,
             Full-Stack."
@@ -26,13 +26,13 @@
             Javascript,
             Html,
             Css,
-            Web-Site creation,
-            Web Development,
+            Java,
+            Python,
             Software Engineering,
             Computer Programming,
             Full-Stack."
     />
-    <meta name="author" content="Brian Loveless (B-Love)" 
+
     <title>Code Compare</title>
     <script
       src="https://kit.fontawesome.com/70784aaaa8.js"
@@ -277,8 +277,14 @@
       <form>
         <h3>input the info to see</h3>
         <br />
-        <h4>Amount of bill: <input type="number" id="billAmount" placeholder="Bill amount"/></h4>
-        <h4>Tip percent : <input type="number" id="tipPercent" placeholder="Percent to tip" /></h4>
+        <h4>
+          Amount of bill:
+          <input type="number" id="billAmount" placeholder="Bill amount" />
+        </h4>
+        <h4>
+          Tip percent :
+          <input type="number" id="tipPercent" placeholder="Percent to tip" />
+        </h4>
         <br />
         <button id="billset" onclick="setBill()">Try me tip</button>
         <br />
@@ -407,7 +413,12 @@ public class Main {
     <h2>It's not just numbers you can modify words too.</h2>
     <div class="pig">
       <h3>Enter a word or phrase to pig latinize below.</h3>
-      <input class="pigInput" type="text" id="pigWordIn" placeholder="word or phrase to Pig Latin-ify" />
+      <input
+        class="pigInput"
+        type="text"
+        id="pigWordIn"
+        placeholder="word or phrase to Pig Latin-ify"
+      />
       <button id="pigLatinBtn" onclick="piglatinize()">Try Me PL</button>
       <div class="pigWord" id="pigWordOut"></div>
       <h3>
@@ -838,7 +849,7 @@ while True:  # The main game loop.
       </figure>
     </div>
     <br />
-        <nav>
+    <nav>
       <h3>take me somewhere else</h3>
       <a href="#TOP"> Top of page</a>| <a href="#TIP"> Tip Calculator</a>|
       <a href="#PIG"> Pig Latin Translator</a> |
@@ -1369,7 +1380,6 @@ while True:  # The main game loop.
       <a href="#PIG"> Pig Latin Translator</a>|
       <a href="#RPS"> Rock Paper Scissors</a> |
       <a href="DOG">Random Dog Picture</a>
-
     </nav>
     <div class="conclusion">
       <h1>So now what?</h1>
@@ -1394,86 +1404,99 @@ while True:  # The main game loop.
       </p>
     </div>
     <div class="weather" id="WTHR">
-      <h2>You can do useful things like getting weather info from another site and display it on yours.</h2>
-          <div class="app-wrap">
-      <div class="mid">
-        <h1>Brian's International Weather App</h1>
-        <h2>Search by city name</h2>
-        <h3>or by city name,state,country</h3>
-        <h4>Use commas between city,state,country and no spaces</h4>
-        <h4>Just city,state or city, state will not work</h4>
-        <h4>EX: atlanta or Atlanta,ga,us or New York,NY,us</h4>
-      </div>
-      <div class="search">
-        <input
-          type="text"
-          autocomplete="off"
-          class="search-box"
-          placeholder="City Only... or city,state,country code"
-        />
-      </div>
-      <button class="click">Forecast Please (in °f)</button>
-      <button class="klick">Weather now governor (in °c)</button>
-
-      <main>
-        <div class="location">
-          <div class="city">New York City, US</div>
-          <div class="date">Thursday 10 January 2020</div>
+      <h2>
+        You can do useful things like getting weather info from another site and
+        display it on yours.
+      </h2>
+      <div class="app-wrap">
+        <div class="mid">
+          <h1>Brian's International Weather App</h1>
+          <h2>Search by city name</h2>
+          <h3>or by city name,state,country</h3>
+          <h4>Use commas between city,state,country and no spaces</h4>
+          <h4>Just city,state or city, state will not work</h4>
+          <h4>EX: atlanta or Atlanta,ga,us or New York,NY,us</h4>
         </div>
-        <div class="wthrImage">
-          <img
-            class="wthrPic"
-            src="http://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather icon reflecting current conditions"
+        <div class="search">
+          <input
+            type="text"
+            autocomplete="off"
+            class="search-box"
+            placeholder="City Only... or city,state,country code"
           />
         </div>
-        <div class="current">
-          <h2>Current Conditions</h2>
-          <div class="description">raining</div>
-          <div class="temp">35 <span>°f</span></div>
-          <div class="feels"></div>
-          <div class="weather">Rain</div>
-          <div class="hi-low">23 °f / 38°f</div>
-          <div class="windSpeed"></div>
-          <div class="windGust"></div>
-          <div class="press"></div>
-          <h3 class="funFact">
-            FUN FACT:
-          </h3>
-          <div class="factFun">
-            The average pressure at sea level is 1013.25 millibars.
+        <button class="click">Forecast Please (in °f)</button>
+        <button class="klick">Weather now governor (in °c)</button>
+
+        <main>
+          <div class="location">
+            <div class="city">New York City, US</div>
+            <div class="date">Thursday 10 January 2020</div>
           </div>
+          <div class="wthrImage">
+            <img
+              class="wthrPic"
+              src="http://openweathermap.org/img/wn/10d@2x.png"
+              alt="weather icon reflecting current conditions"
+            />
+          </div>
+          <div class="current">
+            <h2>Current Conditions</h2>
+            <div class="description">raining</div>
+            <div class="temp">35 <span>°f</span></div>
+            <div class="feels"></div>
+            <div class="weather">Rain</div>
+            <div class="hi-low">23 °f / 38°f</div>
+            <div class="windSpeed"></div>
+            <div class="windGust"></div>
+            <div class="press"></div>
+            <h3 class="funFact">
+              FUN FACT:
+            </h3>
+            <div class="factFun">
+              The average pressure at sea level is 1013.25 millibars.
+            </div>
+          </div>
+        </main>
+
+        <div class="future">
+          <div class="tomorrow">What will tomorrow bring?</div>
+          <div class="twoDays">& 2 days from now?</div>
+          <div class="space"></div>
         </div>
-      </main>
-      
-      <div class="future">
-        <div class="tomorrow">What will tomorrow bring?</div>
-        <div class="twoDays">& 2 days from now?</div>
-        <div class="space"></div>
       </div>
-    </div>
     </div>
     <div id="DOG" class="dogs">
-      <h2>You can also do less useful things like fetching a random picture of a dog from an API.</h2>
+      <h2>
+        You can also do less useful things like fetching a random picture of a
+        dog from an API.
+      </h2>
       <div className="DogContainer">
         <h1 className="Dog">Dog Pics</h1>
-        <button id="dogPic" className="woof" onClick=getRandomImage()>Click for a random dog image from the dog.ceo API</button>
-        <br></br>
+        <button id="dogPic" className="woof" onClick="getRandomImage()">
+          Click for a random dog image from the dog.ceo API
+        </button>
 
-        <img class="dogImage" id="dogImage"  src="https://dog.ceo/img/dog-api-logo.svg" alt="random dog"></img>
+        <img
+          class="dogImage"
+          id="dogImage"
+          src="https://dog.ceo/img/dog-api-logo.svg"
+          alt="random dog"
+        />
       </div>
     </div>
+    <nav>
       <h3>Take me back I want to play again</h3>
-      <a href="#TOP"> Top of Page</a> |
-      <a href="#TIP"> Tip Calculator</a> |
+      <a href="#TOP"> Top of Page</a> | <a href="#TIP"> Tip Calculator</a> |
       <a href="#PIG"> Pig Latin Translator</a> |
       <a href="#RPS"> Rock Paper Scissors</a> |
       <a href="#RPSLS"> Rock Paper Scissors Lizard Spock</a> |
-      <a href="#WTHR"> Weather Forecast</a> 
+      <a href="#WTHR"> Weather Forecast</a>
     </nav>
-<br />
+
     <footer>
-      Made by: <a href="https://brianloveless.com/" target="_blank">Brian Loveless</a>
+      Made by:
+      <a href="https://brianloveless.com/" target="_blank">Brian Loveless</a>
     </footer>
 
     <script src="simp.js"></script>
