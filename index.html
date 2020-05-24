@@ -388,7 +388,7 @@ function piglatinize() {
   let words = wordIn.split(" "),
     newWords = [];
 
-  for (var i = 0; i <&lt; words.length; i++) {
+  for (var i = 0; i &lt;< words.length; i++) {
     newWords.push(this.translate(words[i]));
   }
 
@@ -400,7 +400,7 @@ function translate(word) {
     vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"],
     newWord = "";
 
-  for (var y = 0; y <&lt; word.length; y++) {
+  for (var y = 0; y &lt;< word.length; y++) {
     if (vowels.includes(word[y])) {
       if (y === 0) {
         return word + "yay";
@@ -489,7 +489,7 @@ static String pigLatin(String s) {
     // the index of the first vowel is stored. 
     int len = s.length(); 
     int index = -1; 
-    for (int i = 0; i <&lt;len; i++) 
+    for (int i = 0; i&lt;< ;len; i++) 
     { 
         if (isVowel(s.charAt(i))) { 
         index = i; 
@@ -782,7 +782,7 @@ while True:  # The main game loop.
                           print("Want to continue playing ? ");
                           print("enter any positive number to keep going, or enter any negative number to stop");
                           int more = input.nextInt();
-                          if (more <&lt; 0) {
+                          if (more &lt;< 0) {
                               print("ok now bye bye then ");
                               print("| ScoreBoard: your wins were = " + wins +
                                "| your losses were = " + losses + " | your ties were = " + ties + " |");
