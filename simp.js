@@ -476,9 +476,14 @@ const buttonUS = document.querySelector(".click");
 buttonUS.addEventListener("click", setQuery);
 
 function setQuery() {
-  getResults(searchbox.value);
-  getForecast(searchbox.value);
-  console.log(searchbox.value);
+  if(isNaN(searchbox.value )){
+  getResults((searchbox.value.trim()));
+  getForecast(searchbox.value.trim());
+  console.log(searchbox.value.trim());
+  } else {
+    alert("Please use city,state,country. \n or just city,country. \n this is free and not for use with zipcodes.")
+  }
+
 }
 // imperial in url for american units
 function getResults(query) {
@@ -496,7 +501,7 @@ buttonIntl.addEventListener("click", goMetric);
 function goMetric() {
   getMetricResults(searchbox.value); /// maybe not the best way to swap units but it works
   getForecast(searchbox.value); /// not using any digits so no need to swap this to metric
-  console.log(searchbox.value);
+  //console.log(searchbox.value);
 }
 // metric in same url as above. And forecast instead of weather at bottom of page... I should reduce / refactor them more but they are working
 function getMetricResults(city) {
@@ -631,7 +636,7 @@ function dateBuilder(d) {
 // because who doesn't like math and fun facts?
 // in the middle of the weather page
 
-const funFacts = document.querySelector(".fact");
+const funFacts = document.querySelector(".factFun");
 
 const facts = [
   "Wind comes from changes in pressure.",
