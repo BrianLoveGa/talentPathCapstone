@@ -458,14 +458,13 @@ function scoreW() {
 //   event.preventDefault();
 // });
 
-
 /// let's just random dog pics and weather like we had on old site.
 
 // weather first
 /// to get weather data for free
 const api = {
   key: "2416761b1a4e0e266b8e6bb58c037760",
-  base: "https://api.openweathermap.org/data/2.5/"
+  base: "https://api.openweathermap.org/data/2.5/",
 };
 
 // the search box
@@ -476,19 +475,28 @@ const buttonUS = document.querySelector(".click");
 buttonUS.addEventListener("click", setQuery);
 
 function setQuery() {
-  if(isNaN(searchbox.value )){
-  getResults((searchbox.value.trim()));
-  getForecast(searchbox.value.trim());
-  console.log(searchbox.value.trim());
+  if (isNaN(searchbox.value)) {
+    where = myTrim(searchbox.value);
+    getResults(where);
+    getForecast(where);
+    console.log(where);
   } else {
-    alert("Please use city,state,country. \n or just city,country. \n this is free and not for use with zipcodes.")
+    alert(
+      "Please use city,state,country. \n or just city, country. \n this is free and not for use with zip-codes."
+    );
   }
-
 }
+
+// no spaces but people don't read so i'll fix it for them....
+
+function myTrim(x) {
+  return x.replace(/^\s+|\s+$/gm, "");
+}
+
 // imperial in url for american units
 function getResults(query) {
   fetch(`${api.base}weather?q=${query}&units=imperial&APPID=${api.key}`)
-    .then(weather => {
+    .then((weather) => {
       //console.log(weather.json());
       return weather.json();
     })
@@ -506,7 +514,7 @@ function goMetric() {
 // metric in same url as above. And forecast instead of weather at bottom of page... I should reduce / refactor them more but they are working
 function getMetricResults(city) {
   fetch(`${api.base}weather?q=${city}&units=metric&APPID=${api.key}`)
-    .then(weather => {
+    .then((weather) => {
       //console.log(weather.json());
       return weather.json();
     })
@@ -613,7 +621,7 @@ function dateBuilder(d) {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ];
   let days = [
     "Sunday",
@@ -622,7 +630,7 @@ function dateBuilder(d) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
 
   let day = days[d.getDay()];
@@ -650,7 +658,7 @@ const facts = [
   "In 1684, it was so cold that the River Thames froze solid for two months.",
   "At any given time, on average there are about 1800 thunderstorms occurring on Earth with 100 lightning strikes per second.",
   "A cubic mile of ordinary fog contains less than a gallon of water.",
-  "Snowflakes falling at 2-4 mph can take up to 1 hour to reach the ground."
+  "Snowflakes falling at 2-4 mph can take up to 1 hour to reach the ground.",
 ];
 
 function factSwap() {
@@ -660,10 +668,10 @@ function factSwap() {
 
 /// forecast  / future weather below current
 
-// get functions 
+// get functions
 function getForecast(city) {
   fetch(`${api.base}forecast?q=${city}&units=imperial&APPID=${api.key}`)
-    .then(forecast => {
+    .then((forecast) => {
       return forecast.json();
     })
     .then(displayResultsForecast);
@@ -677,9 +685,8 @@ function displayResultsForecast(forecast) {
   let tomorrow = document.querySelector(".tomorrow");
   tomorrow.innerText = `Tomorrow will be: ${forecast.list[6].weather[0].main}`;
   let twoDays = document.querySelector(".twoDays");
-  twoDays.innerText = ` In two days it will be: ${forecast.list[15].weather[0].main}`
+  twoDays.innerText = ` In two days it will be: ${forecast.list[15].weather[0].main}`;
 }
-
 
 // from dog.ceo api - @ https://dog.ceo/dog-api/
 // function to perform a get request
@@ -707,6 +714,5 @@ function getRandomImage() {
 document.getElementById("dogPic").addEventListener("click", function (event) {
   event.preventDefault();
 });
-
 
 /// the end - code by: Brian Loveless

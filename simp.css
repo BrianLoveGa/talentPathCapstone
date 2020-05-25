@@ -213,7 +213,6 @@ h1 {
 
 .score {
   border: 2px solid orange;
-  display: inline-flexbox;
   margin: 2%;
   padding: 5px;
 }
@@ -238,9 +237,6 @@ h1 {
 pre {
   margin: 2%;
   white-space: pre-wrap;
-  white-space: moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
   word-wrap: break-word;
 }
 
