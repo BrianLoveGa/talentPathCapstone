@@ -13,6 +13,25 @@ body {
   text-align: center;
 }
 
+.movie {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  border: red dotted 2px;
+}
+
+.movie iframe,
+.movie object,
+.movie embed {
+  top: 0;
+  left: 15px;
+  width: 95%;
+  height: 95%;
+  position: absolute;
+}
+
 .resp {
   max-width: 100%;
   height: auto;
@@ -117,15 +136,15 @@ ul {
   }
 }
 
-.pigInput{
-  width:70%;
-  padding:10px;
-  font-size:1.2em;
+.pigInput {
+  width: 70%;
+  padding: 10px;
+  font-size: 1.2em;
 }
-.pigWord{
-  font-size:1.3em;
-  padding:10px;
-  margin:2%;
+.pigWord {
+  font-size: 1.3em;
+  padding: 10px;
+  margin: 2%;
 }
 .tip,
 .pig,
@@ -370,7 +389,6 @@ main {
   border-radius: 20px;
 }
 
-
 .factFun,
 .funFact {
   margin: 3% Auto;
@@ -409,8 +427,8 @@ main {
   background-color: rgb(136, 168, 180);
   padding: 18px;
 }
-.spacer{
-  height: 30px;;
+.spacer {
+  height: 30px;
 }
 
 .dogImage {
@@ -419,10 +437,8 @@ main {
   background-color: silver;
 }
 
-
-footer{
+footer {
   text-align: center;
   text-decoration: none;
-  margin:5%;
-  
+  margin: 5%;
 }
