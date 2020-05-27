@@ -14,8 +14,8 @@ let j = 0;
 let k = 0;
 let txtJavaScript =
   "JavaScript is the best language for programming!"; /* The text */
-let txtPython = "Python is the better programming language!";
-let txtJava = "No Java is the best programming language!";
+let txtPython = "I think Python is the better programming language!";
+let txtJava = "I say Java is the best programming language!";
 let speedJS = 70; /* The speed/duration of the effect in milliseconds */
 let speedPY = 125;
 let speedJV = 175;
