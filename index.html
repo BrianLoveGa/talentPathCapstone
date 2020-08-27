@@ -272,7 +272,7 @@
       id="modalChart"
       src="./media/topLanguagesonGitHub.png"
       alt="chart showing JavaScript top language on github followed by Python second and Java third"
-      style="width: 100%; max-width: 570px;"
+      style="width: 100%; max-width: 570px"
     />
     <div id="myModal" class="modal">
       <span class="close">&times;</span>
@@ -390,41 +390,42 @@ while True:
         </figcaption>
         <pre class="prettyprint">
             <code>
-package com.BrianLoveless1;
-
-import java.util.*;
-
-public class Main {
-
-    public static void main(String[] args) {
-        // write your code here
-        double bill = 0.00;
-        double tip = 0.00;
-        double amount = 0.00;
-        Scanner input = new Scanner(System.in);
-        boolean running = true;
-
-        while (running) {
-            print("Welcome to tip calc ... please input the bill amount");
-            bill = Double.parseDouble(input.nextLine().trim());
-            print("enter the percent you want to tip as a whole number");
-            tip = Double.parseDouble(input.nextLine().trim());
-            amount = (bill * (tip / 100) * 100) / 100;
-            print(" for the bill $" + bill + " & tipping " + tip + " % = $" + amount + " for the tip.");
-            print(" use again ? (y)es or (n)o ?");
-            String again = input.nextLine().toLowerCase();
-            if (again.startsWith("n")) {
-                running = false;
-                break;
-            }
-        }
-    }
-
-    public static void print(Object _O) {
-        System.out.println(_O);
-    }
-}
+              import java.math.RoundingMode;
+              import java.text.DecimalFormat;
+              import java.util.*;
               
+              public class Main {
+              
+                  public static void main(String[] args) {
+                      // write your code here
+                      double bill = 0.00;
+                      double tip = 0.00;
+                      double amount = 0.00;
+                      Scanner input = new Scanner(System.in);
+                      boolean running = true;
+              
+                      while (running) {
+                          print("Welcome to tip calc ... please input the bill amount");
+                          bill = Double.parseDouble(input.nextLine().trim());
+                          print("enter the percent you want to tip as a whole number");
+                          tip = Double.parseDouble(input.nextLine().trim());
+                          amount = bill * (tip / 100);
+                          DecimalFormat df = new DecimalFormat("#.##");
+                          df.setRoundingMode(RoundingMode.CEILING);
+                          print(" for the bill $" + bill + " & tipping " + tip + " % = $" + df.format(amount) + " for the tip.");
+                          print(" use again ? (y)es or (n)o ?");
+                          String again = input.nextLine().toLowerCase();
+                          if (again.startsWith("n")) {
+                              running = false;
+                              break;
+                          }
+                      }
+                  }
+              
+                  public static void print(Object _O) {
+                      System.out.println(_O);
+                  }
+              }          
             </code>
           </pre>
       </figure>
@@ -1430,10 +1431,10 @@ while True:  # The main game loop.
         does. While they might have slightly different approaches, and some
         programmers swear by one and curse the other. Honestly there is not one
         clear hands-down winner or loser. You can use Node / Express
-        (JavaScript) to make back-ends for websites or Django (Python) or Java DB
-        / Springboot (Java). While they might have different ways of completing
-        the tasks assigned to them they are all, like me, quite capable of
-        getting the job done.
+        (JavaScript) to make back-ends for websites or Django (Python) or Java
+        DB / Springboot (Java). While they might have different ways of
+        completing the tasks assigned to them they are all, like me, quite
+        capable of getting the job done.
       </p>
     </div>
     <div class="weather" id="WTHR">
@@ -1483,9 +1484,7 @@ while True:  # The main game loop.
             <div class="windSpeed"></div>
             <div class="windGust"></div>
             <div class="press"></div>
-            <h3 class="funFact">
-              FUN FACT:
-            </h3>
+            <h3 class="funFact">FUN FACT:</h3>
             <div class="factFun">
               The average pressure at sea level is 1013.25 millibars.
             </div>
@@ -1533,7 +1532,7 @@ while True:  # The main game loop.
     <p>
       <a href="https://jigsaw.w3.org/css-validator/check/referer">
         <img
-          style="border: 0; width: 88px; height: 31px;"
+          style="border: 0; width: 88px; height: 31px"
           src="https://jigsaw.w3.org/css-validator/images/vcss"
           alt="Valid CSS!"
         />
