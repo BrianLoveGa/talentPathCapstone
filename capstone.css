@@ -442,3 +442,14 @@ footer {
   text-decoration: none;
   margin: 5%;
 }
+
+
+
+.vidlink{
+  background-color: khaki;
+  width:50%;
+  text-align: center;
+  padding:10px;
+  border-radius: 20px;
+  border: 5px solid hotpink;
+}
