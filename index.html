@@ -284,7 +284,6 @@
       />
       <div id="caption"></div>
     </div>
-   
 
     <h1 id="TIP">
       For all the likes, dislikes and all the differences these languages have,
@@ -302,7 +301,13 @@
       20%? Bookmark this site to have your own quick calculator handy.
     </h3>
 
-    <div> <h3 class="vidlink"> <a target="_blank" href="https://www.youtube.com/watch?v=hlLK2NpTBhQ&t">Link to Tip Calc Demo Video Series</a> </h3></div>
+    <div>
+      <h3 class="vidlink">
+        <a target="_blank" href="https://www.youtube.com/watch?v=hlLK2NpTBhQ&t"
+          >Link to Tip Calc Demo Video Series</a
+        >
+      </h3>
+    </div>
     <div class="tip">
       <h1>Tip calculator:</h1>
       <h2>How much do I leave for a tip?</h2>
@@ -363,24 +368,25 @@ document.getElementById("billset").addEventListener("click", function (event) {
         <figcaption>Python code here</figcaption>
         <pre class="prettyprint">
             <code>
-import sys
+              import sys
 
-while True:
-    print("welcome to tip clac enter the bill amount or q to exit")
-    bill = input()
-    if (bill == "q"):
-        sys.exit()
-    print("enter the percent to tip or q to exit")
-    percent = input()
-    if (percent == "q"):
-        sys.exit()
-    total = (int(percent)/100)* int(bill)
-    print(" for a bill of $" +bill +" tipping "+ percent +"% = $")
-    print(total)
-    print("run again? (y)es or (q) q for quit")
-    again = input()
-    if (again == 'q'):
-        sys.exit()
+              while True:
+                  print("welcome to tip clac enter the bill amount or q to exit")
+                  bill = input()
+                  if (bill == "q"):
+                      sys.exit()
+                  print("enter the percent to tip or q to exit")
+                  percent = input()
+                  if (percent == "q"):
+                      sys.exit()
+                  total = (float(percent)/100)* float(bill)
+                  print(" for a bill of $" +bill +" tipping "+ percent +"% = $")
+                  print(round(total, 2))
+                  print("run again? (y)es or (q) q for quit")
+                  again = input()
+                  if (again == 'q'):
+                      sys.exit()
+              
               
             </code>
           </pre>
